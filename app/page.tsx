@@ -99,6 +99,48 @@ const tools = [
       "Enter a cron expression to get a human-readable description and upcoming run times. Includes common presets.",
     icon: "CT",
   },
+  {
+    href: "/qr",
+    name: "QR Code Generator",
+    description:
+      "Enter text or a URL to generate a QR code. Adjustable size and download as PNG. Canvas-based with no external library.",
+    icon: "QR",
+  },
+  {
+    href: "/uuid",
+    name: "UUID Generator",
+    description:
+      "Generate random v4 UUIDs. Bulk generate up to 100 at once, copy individual or all, and toggle hyphens on or off.",
+    icon: "ID",
+  },
+  {
+    href: "/chmod",
+    name: "Unix Permissions Calculator",
+    description:
+      "Toggle read, write, and execute for owner, group, and other. See numeric (755) and symbolic (rwxr-xr-x) in real-time.",
+    icon: "RW",
+  },
+  {
+    href: "/sql",
+    name: "SQL Formatter",
+    description:
+      "Paste messy SQL to format with proper indentation and keyword uppercasing. Supports SELECT, INSERT, UPDATE, DELETE, CREATE, and ALTER.",
+    icon: "SQ",
+  },
+  {
+    href: "/yaml-json",
+    name: "YAML / JSON Converter",
+    description:
+      "Convert between YAML and JSON formats with a built-in parser. Handles nested objects, arrays, strings, numbers, and booleans.",
+    icon: "YJ",
+  },
+  {
+    href: "/aspect-ratio",
+    name: "Aspect Ratio Calculator",
+    description:
+      "Calculate dimensions from an aspect ratio (16:9, 4:3, 1:1, 21:9, 9:16) or enter any two dimensions to detect the ratio.",
+    icon: "AR",
+  },
 ];
 
 export default function HomePage() {

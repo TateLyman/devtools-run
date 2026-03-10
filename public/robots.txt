@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devtools-site-delta.vercel.app/sitemap.xml
