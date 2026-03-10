@@ -1,0 +1,154 @@
+import Link from "next/link";
+
+const tools = [
+  {
+    href: "/json",
+    name: "JSON Formatter & Validator",
+    description:
+      "Paste JSON to format, validate, and minify. Instant syntax highlighting and error detection.",
+    icon: "{ }",
+  },
+  {
+    href: "/base64",
+    name: "Base64 Encoder / Decoder",
+    description:
+      "Encode or decode text and files to and from Base64. Supports UTF-8 and binary files.",
+    icon: "B64",
+  },
+  {
+    href: "/hash",
+    name: "Hash Generator",
+    description:
+      "Generate MD5, SHA-1, and SHA-256 hashes from any text input using the Web Crypto API.",
+    icon: "#",
+  },
+  {
+    href: "/jwt",
+    name: "JWT Decoder",
+    description:
+      "Paste a JSON Web Token to decode and inspect the header, payload, and signature.",
+    icon: "JWT",
+  },
+  {
+    href: "/timestamp",
+    name: "Unix Timestamp Converter",
+    description:
+      "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds.",
+    icon: "T",
+  },
+  {
+    href: "/sol-calc",
+    name: "SOL / USD Calculator",
+    description:
+      "Convert between Solana (SOL) and USD with live prices from CoinGecko.",
+    icon: "$",
+  },
+  {
+    href: "/regex",
+    name: "Regex Tester",
+    description:
+      "Test regular expression patterns against text with real-time match highlighting.",
+    icon: ".*",
+  },
+  {
+    href: "/color",
+    name: "Color Converter",
+    description:
+      "Convert colors between HEX, RGB, and HSL formats with a live preview swatch.",
+    icon: "C",
+  },
+  {
+    href: "/markdown",
+    name: "Markdown Preview",
+    description:
+      "Write Markdown and see rendered HTML in real-time. Supports headings, bold, italic, links, code blocks, lists, and blockquotes.",
+    icon: "MD",
+  },
+  {
+    href: "/url",
+    name: "URL Encoder / Decoder",
+    description:
+      "Encode or decode URLs and URL components using encodeURI or encodeURIComponent with instant output.",
+    icon: "%",
+  },
+  {
+    href: "/lorem",
+    name: "Lorem Ipsum Generator",
+    description:
+      "Generate placeholder paragraphs, sentences, or words for your designs and mockups.",
+    icon: "Li",
+  },
+  {
+    href: "/diff",
+    name: "Text Diff Tool",
+    description:
+      "Compare two pieces of text side by side with line-by-line diff highlighting for added and removed lines.",
+    icon: "+-",
+  },
+  {
+    href: "/password",
+    name: "Password Generator",
+    description:
+      "Generate strong, random passwords with customizable length, character types, and a strength indicator.",
+    icon: "**",
+  },
+  {
+    href: "/cron",
+    name: "Cron Expression Parser",
+    description:
+      "Enter a cron expression to get a human-readable description and upcoming run times. Includes common presets.",
+    icon: "CT",
+  },
+];
+
+export default function HomePage() {
+  return (
+    <>
+      <section className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-3 tracking-tight">
+          Free Online Developer Tools
+        </h1>
+        <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
+          Fast, private, and free. Every tool runs entirely in your browser
+          &mdash; nothing is sent to a server.
+        </p>
+      </section>
+
+      {/* AD SLOT - Top Banner */}
+      <div className="ad-slot mb-8">
+        {/* AD SLOT: leaderboard banner 728x90 */}
+        <span>Ad Space</span>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {tools.map((tool) => (
+          <Link
+            key={tool.href}
+            href={tool.href}
+            className="group block rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-[var(--accent)] transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <div className="shrink-0 w-11 h-11 rounded-lg bg-[var(--bg-tertiary)] border border-[var(--border)] flex items-center justify-center text-sm font-mono font-bold text-[var(--accent)]">
+                {tool.icon}
+              </div>
+              <div>
+                <h2 className="font-semibold text-white group-hover:text-[var(--accent)] transition-colors mb-1">
+                  {tool.name}
+                </h2>
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+                  {tool.description}
+                </p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* AD SLOT - Bottom Banner */}
+      <div className="ad-slot mt-8">
+        {/* AD SLOT: leaderboard banner 728x90 */}
+        <span>Ad Space</span>
+      </div>
+    </>
+  );
+}
