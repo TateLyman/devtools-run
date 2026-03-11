@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "live Markdown renderer",
     "Markdown online",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/markdown",
+  },
 };
 
 export default function MarkdownLayout({

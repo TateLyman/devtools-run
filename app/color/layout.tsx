@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "color picker",
     "CSS color",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/color",
+  },
 };
 
 export default function ColorLayout({

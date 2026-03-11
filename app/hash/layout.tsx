@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "online hash",
     "crypto hash",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/hash",
+  },
 };
 
 export default function HashLayout({

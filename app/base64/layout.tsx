@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "decode Base64",
     "Base64 online",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/base64",
+  },
 };
 
 export default function Base64Layout({

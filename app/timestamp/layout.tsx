@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "date to timestamp",
     "Unix time",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/timestamp",
+  },
 };
 
 export default function TimestampLayout({

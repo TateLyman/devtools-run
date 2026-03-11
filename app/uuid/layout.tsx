@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "bulk UUID generator",
     "random UUID online",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/uuid",
+  },
 };
 
 export default function UuidLayout({

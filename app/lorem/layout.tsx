@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "Lorem Ipsum online",
     "generate Lorem Ipsum",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/lorem",
+  },
 };
 
 export default function LoremLayout({

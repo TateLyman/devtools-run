@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "chmod 755",
     "symbolic permissions",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/chmod",
+  },
 };
 
 export default function ChmodLayout({

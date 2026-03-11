@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "JWT online",
     "JWT parser",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/jwt",
+  },
 };
 
 export default function JwtLayout({

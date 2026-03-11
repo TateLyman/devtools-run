@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "decode URL online",
     "URL encoding tool",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/url",
+  },
 };
 
 export default function UrlLayout({

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "Solana price",
     "crypto calculator",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/sol-calc",
+  },
 };
 
 export default function SolCalcLayout({

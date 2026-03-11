@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "format JSON online",
     "pretty print JSON",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/json",
+  },
 };
 
 export default function JsonLayout({

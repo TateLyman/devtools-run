@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "sol token checker",
     "solana token data",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/sol-token",
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

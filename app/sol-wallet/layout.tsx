@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "check sol balance",
     "solana address lookup",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/sol-wallet",
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

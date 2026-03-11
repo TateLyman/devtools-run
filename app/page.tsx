@@ -59,6 +59,13 @@ const tools = [
     icon: "W",
   },
   {
+    href: "/sol-scan",
+    name: "Token Safety Scanner",
+    description:
+      "Scan any Solana token for rug pull risks. Checks mint authority, freeze authority, top holders, and more. 0.01 SOL per scan.",
+    icon: "\ud83d\udd0d",
+  },
+  {
     href: "/regex",
     name: "Regex Tester",
     description:
@@ -161,6 +168,30 @@ const tools = [
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "DevTools.run",
+            "url": "https://devtools-site-delta.vercel.app",
+            "description": "22 free browser-based developer tools. JSON formatter, Base64 encoder, JWT decoder, Solana tools, and more.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "Tate Lyman",
+              "url": "https://github.com/TateLyman"
+            }
+          })
+        }}
+      />
       <section className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-3 tracking-tight">
           Free Online Developer Tools

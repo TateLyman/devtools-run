@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "YAML parser",
     "convert YAML online",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/yaml-json",
+  },
 };
 
 export default function YamlJsonLayout({

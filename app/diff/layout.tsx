@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "text comparison",
     "line diff",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/diff",
+  },
 };
 
 export default function DiffLayout({

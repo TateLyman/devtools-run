@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "strong password generator",
     "password generator online",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/password",
+  },
 };
 
 export default function PasswordLayout({

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "regex match",
     "regex highlighter",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/regex",
+  },
 };
 
 export default function RegexLayout({

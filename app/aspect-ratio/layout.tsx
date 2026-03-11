@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "video resolution calculator",
     "screen ratio",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/aspect-ratio",
+  },
 };
 
 export default function AspectRatioLayout({

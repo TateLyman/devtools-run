@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "QR code PNG download",
     "free QR code maker",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/qr",
+  },
 };
 
 export default function QrLayout({

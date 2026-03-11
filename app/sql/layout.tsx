@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "SQL pretty print",
     "SQL indentation",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/sql",
+  },
 };
 
 export default function SqlLayout({

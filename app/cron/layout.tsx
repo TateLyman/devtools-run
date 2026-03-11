@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "cron expression explained",
     "cron generator",
   ],
+  alternates: {
+    canonical: "https://devtools-site-delta.vercel.app/cron",
+  },
 };
 
 export default function CronLayout({
