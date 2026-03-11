@@ -9,7 +9,7 @@ export default function SolBotPage() {
             Solana Trading Bot for Telegram
           </h1>
           <p className="text-xl text-gray-400 mb-6">
-            Free. Fast. MEV-Protected. 35 commands. 3,400+ lines of pure
+            Free. Fast. MEV-Protected. 37 commands. 3,600+ lines of pure
             Node.js.
           </p>
           <a
@@ -55,6 +55,14 @@ export default function SolBotPage() {
             title="3-Tier Referral System"
             desc="Earn 30% of trading fees from direct referrals, 10% from tier 2, 5% from tier 3. Points leaderboard with seasons."
           />
+          <Feature
+            title="Premium Tier"
+            desc="0.1 SOL/month for 0.5% trading fees (half price), unlimited snipes, and faster alerts. Pays for itself after 10 SOL traded."
+          />
+          <Feature
+            title="Promote Your Token"
+            desc="Token devs can promote their token at the top of /trending for 0.5 SOL/24h. Includes automatic buy buttons for all users."
+          />
         </div>
 
         <div className="bg-gray-900 rounded-xl p-8 mb-12">
@@ -73,14 +81,16 @@ export default function SolBotPage() {
         <div className="bg-gray-900 rounded-xl p-8 mb-12">
           <h2 className="text-2xl font-bold mb-4">Pricing</h2>
           <p className="text-gray-300 mb-2">
-            <strong>Free to use.</strong> No subscription. No minimum deposit.
+            <strong>Free to use.</strong> No subscription required. No minimum deposit.
           </p>
           <p className="text-gray-300 mb-2">
-            1% fee on trades (0.9% with referral code).
+            1% fee on trades (0.9% with referral, 0.5% with Premium).
+          </p>
+          <p className="text-gray-300 mb-2">
+            <strong>Premium:</strong> 0.1 SOL/month for half-price fees + unlimited snipes.
           </p>
           <p className="text-gray-300">
-            Jito MEV protection + Jupiter dynamic priority fees included on
-            every trade.
+            Jito MEV protection + Jupiter dynamic priority fees on every trade.
           </p>
         </div>
 
@@ -100,6 +110,8 @@ export default function SolBotPage() {
             <Cmd cmd="/trending" desc="Hot tokens" />
             <Cmd cmd="/whale" desc="Whale alerts" />
             <Cmd cmd="/compete" desc="Weekly competition" />
+            <Cmd cmd="/premium" desc="0.5% fees + unlimited snipes" />
+            <Cmd cmd="/promote" desc="Promote your token" />
             <Cmd cmd="/settings" desc="Slippage & auto-TP" />
             <Cmd cmd="/referral" desc="Earn 30% on referrals" />
             <Cmd cmd="/price" desc="Token price lookup" />
