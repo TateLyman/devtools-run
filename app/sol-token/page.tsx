@@ -305,6 +305,12 @@ export default function SolTokenPage() {
         <span>Ad Space</span>
       </div>
 
+      <div className="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-800/30">
+        <h3 className="text-lg font-bold text-white mb-2">Trade Solana Tokens on Telegram</h3>
+        <p className="text-gray-300 text-sm mb-3">Buy, sell, copy trade, snipe new tokens, and DCA — all from Telegram. MEV-protected. 0.5% fees with Premium.</p>
+        <a href="https://t.me/solscanitbot" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg text-sm transition-colors">Open @solscanitbot</a>
+      </div>
+
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">
           About Solana Token Lookup
