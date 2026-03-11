@@ -44,6 +44,20 @@ const tools = [
     icon: "$",
   },
   {
+    href: "/sol-token",
+    name: "Solana Token Lookup",
+    description:
+      "Look up any Solana token by mint address. See name, symbol, supply, price, and more.",
+    icon: "SOL",
+  },
+  {
+    href: "/sol-wallet",
+    name: "Solana Wallet Checker",
+    description:
+      "Check any Solana wallet balance, token holdings, and recent transactions.",
+    icon: "W",
+  },
+  {
     href: "/regex",
     name: "Regex Tester",
     description:
@@ -156,12 +170,6 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* AD SLOT - Top Banner */}
-      <div className="ad-slot mb-8">
-        {/* AD SLOT: leaderboard banner 728x90 */}
-        <span>Ad Space</span>
-      </div>
-
       <div className="grid gap-4 sm:grid-cols-2">
         {tools.map((tool) => (
           <Link
@@ -186,10 +194,25 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* AD SLOT - Bottom Banner */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: leaderboard banner 728x90 */}
-        <span>Ad Space</span>
+      <div className="mt-10 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
+        <h3 className="text-lg font-semibold text-white mb-2 text-center">Support this project</h3>
+        <p className="text-sm text-[var(--text-secondary)] text-center mb-4">
+          All tools are 100% free, open source, and run client-side. Tips help keep it that way.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center gap-3 justify-center">
+          <div className="flex items-center gap-2 bg-[var(--bg-tertiary)] rounded-lg px-4 py-2.5 border border-[var(--border)] w-full sm:w-auto">
+            <span className="text-sm font-medium text-[var(--accent)]">SOL</span>
+            <code className="text-xs text-[var(--text-secondary)] select-all break-all">NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr</code>
+          </div>
+          <a
+            href="https://github.com/TateLyman/devtools-run"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-white transition-colors"
+          >
+            Star on GitHub →
+          </a>
+        </div>
       </div>
     </>
   );

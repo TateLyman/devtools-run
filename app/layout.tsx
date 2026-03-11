@@ -107,7 +107,9 @@ export default function RootLayout({
 
         <footer className="border-t border-[var(--border)] mt-auto">
           <div className="max-w-5xl mx-auto px-4 py-6 text-center text-sm text-[var(--text-secondary)]">
-            Built by a developer, for developers
+            Built by a developer, for developers · Tips:{" "}
+            <code className="text-xs text-[var(--accent)] select-all">NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr</code>{" "}
+            <span className="text-[var(--text-secondary)]">(SOL)</span>
           </div>
         </footer>
       </body>

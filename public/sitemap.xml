@@ -7,6 +7,8 @@
   <url><loc>https://devtools-site-delta.vercel.app/jwt</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://devtools-site-delta.vercel.app/timestamp</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://devtools-site-delta.vercel.app/sol-calc</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://devtools-site-delta.vercel.app/sol-token</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://devtools-site-delta.vercel.app/sol-wallet</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://devtools-site-delta.vercel.app/regex</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://devtools-site-delta.vercel.app/color</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://devtools-site-delta.vercel.app/markdown</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
