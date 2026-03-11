@@ -9,7 +9,7 @@ export default function SolBotPage() {
             Solana Trading Bot for Telegram
           </h1>
           <p className="text-xl text-gray-400 mb-6">
-            Free. Fast. MEV-Protected. 37 commands. 3,600+ lines of pure
+            Free. Fast. MEV-Protected. 40+ commands. 4,100+ lines of pure
             Node.js.
           </p>
           <a
@@ -63,6 +63,14 @@ export default function SolBotPage() {
             title="Promote Your Token"
             desc="Token devs can promote their token at the top of /trending for 0.5 SOL/24h. Includes automatic buy buttons for all users."
           />
+          <Feature
+            title="Volume Bot"
+            desc="Generate real on-chain trading volume for your token. Each bump cycle does a buy + sell through Jupiter. 0.05 SOL per cycle."
+          />
+          <Feature
+            title="Daily Hot Tokens"
+            desc="Automated daily digest of top-performing tokens sent to all active traders. Includes promoted tokens with buy buttons."
+          />
         </div>
 
         <div className="bg-gray-900 rounded-xl p-8 mb-12">
@@ -112,6 +120,8 @@ export default function SolBotPage() {
             <Cmd cmd="/compete" desc="Weekly competition" />
             <Cmd cmd="/premium" desc="0.5% fees + unlimited snipes" />
             <Cmd cmd="/promote" desc="Promote your token" />
+            <Cmd cmd="/bump" desc="Volume bot" />
+            <Cmd cmd="/tip" desc="Tip the dev" />
             <Cmd cmd="/settings" desc="Slippage & auto-TP" />
             <Cmd cmd="/referral" desc="Earn 30% on referrals" />
             <Cmd cmd="/price" desc="Token price lookup" />
