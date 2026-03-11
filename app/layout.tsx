@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | DevTools.run",
   },
   description:
-    "Free online developer tools: JSON formatter, Base64 encoder, hash generator, JWT decoder, regex tester, color converter, Unix timestamp converter, and SOL/USD calculator. Fast, private, no signup required.",
+    "Free online developer tools: JSON formatter, Base64 encoder, hash generator, JWT decoder, regex tester, color converter, Unix timestamp converter, SOL/USD calculator, and Solana Scanner Telegram bot. Fast, private, no signup required.",
   keywords: [
     "developer tools",
     "JSON formatter",
@@ -20,12 +20,14 @@ export const metadata: Metadata = {
     "color converter",
     "unix timestamp",
     "SOL USD calculator",
+    "Solana Telegram bot",
+    "Solana scanner bot",
   ],
   metadataBase: new URL("https://devtools.run"),
   openGraph: {
     title: "DevTools.run - Free Online Developer & Crypto Tools",
     description:
-      "Free, fast, private developer tools that run entirely in your browser.",
+      "Free, fast, private developer tools that run entirely in your browser. Plus a Solana Scanner bot on Telegram.",
     type: "website",
     locale: "en_US",
     siteName: "DevTools.run",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DevTools.run - Free Online Developer & Crypto Tools",
     description:
-      "Free, fast, private developer tools that run entirely in your browser.",
+      "Free, fast, private developer tools that run entirely in your browser. Plus a Solana Scanner bot on Telegram.",
   },
   robots: {
     index: true,

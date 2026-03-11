@@ -176,7 +176,7 @@ export default function HomePage() {
             "@type": "WebApplication",
             "name": "DevTools.run",
             "url": "https://devtools-site-delta.vercel.app",
-            "description": "22 free browser-based developer tools. JSON formatter, Base64 encoder, JWT decoder, Solana tools, and more.",
+            "description": "22 free browser-based developer tools and a Solana Scanner Telegram bot. JSON formatter, Base64 encoder, JWT decoder, Solana tools, and more.",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Any",
             "offers": {
@@ -224,6 +224,25 @@ export default function HomePage() {
             </div>
           </Link>
         ))}
+      </div>
+
+      <div className="mt-8 rounded-xl border border-[var(--border)] bg-gradient-to-r from-[#0088cc]/10 to-[var(--bg-secondary)] p-6">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-1">Solana Scanner Bot on Telegram</h3>
+            <p className="text-sm text-[var(--text-secondary)]">
+              Check token prices, wallet balances, and run rug checks — all from Telegram.
+            </p>
+          </div>
+          <a
+            href="https://t.me/solscanitbot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-[#0088cc] text-white hover:bg-[#0088cc]/90 transition-colors"
+          >
+            Open in Telegram →
+          </a>
+        </div>
       </div>
 
       <div className="mt-10 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
