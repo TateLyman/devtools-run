@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TipButton from "./components/TipButton";
 
 const tools = [
   {
@@ -199,7 +200,8 @@ export default function HomePage() {
         <p className="text-sm text-[var(--text-secondary)] text-center mb-4">
           All tools are 100% free, open source, and run client-side. Tips help keep it that way.
         </p>
-        <div className="flex flex-col sm:flex-row items-center gap-3 justify-center">
+        <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
+          <TipButton />
           <div className="flex items-center gap-2 bg-[var(--bg-tertiary)] rounded-lg px-4 py-2.5 border border-[var(--border)] w-full sm:w-auto">
             <span className="text-sm font-medium text-[var(--accent)]">SOL</span>
             <code className="text-xs text-[var(--text-secondary)] select-all break-all">NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr</code>
