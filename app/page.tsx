@@ -229,9 +229,9 @@ export default function HomePage() {
       <div className="mt-8 rounded-xl border border-[var(--border)] bg-gradient-to-r from-[#0088cc]/10 to-[var(--bg-secondary)] p-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <h3 className="text-lg font-semibold text-white mb-1">Solana Scanner Bot on Telegram</h3>
+            <h3 className="text-lg font-semibold text-white mb-1">Solana Trading Bot on Telegram</h3>
             <p className="text-sm text-[var(--text-secondary)]">
-              Check token prices, wallet balances, and run rug checks — all from Telegram.
+              Buy, sell, copy trade, snipe, DCA — 40+ commands. MEV-protected. 0.5% fees with Premium.
             </p>
           </div>
           <a
@@ -243,6 +243,19 @@ export default function HomePage() {
             Open in Telegram →
           </a>
         </div>
+      </div>
+
+      <div className="mt-8 grid sm:grid-cols-2 gap-4">
+        <a href="/sol-grid-bot" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-green-500/50 transition-colors block">
+          <h3 className="text-base font-semibold text-white mb-1">SOL Grid Trading Bot</h3>
+          <p className="text-xs text-[var(--text-secondary)] mb-2">Automated grid trading on Jupiter DEX. +11.7% backtested.</p>
+          <span className="text-green-400 font-bold text-sm">$79 →</span>
+        </a>
+        <a href="/prompt-pack" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-purple-500/50 transition-colors block">
+          <h3 className="text-base font-semibold text-white mb-1">AI Prompt Engineering Pack</h3>
+          <p className="text-xs text-[var(--text-secondary)] mb-2">50+ battle-tested templates for devs and founders.</p>
+          <span className="text-purple-400 font-bold text-sm">$19 →</span>
+        </a>
       </div>
 
       <div className="mt-10 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
