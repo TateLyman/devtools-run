@@ -249,12 +249,12 @@ export default function HomePage() {
         <a href="/sol-grid-bot" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-green-500/50 transition-colors block">
           <h3 className="text-base font-semibold text-white mb-1">SOL Grid Trading Bot</h3>
           <p className="text-xs text-[var(--text-secondary)] mb-2">Automated grid trading on Jupiter DEX. +11.7% backtested.</p>
-          <span className="text-green-400 font-bold text-sm">$79 →</span>
+          <span className="text-green-400 font-bold text-sm">0.5 SOL →</span>
         </a>
         <a href="/prompt-pack" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-purple-500/50 transition-colors block">
           <h3 className="text-base font-semibold text-white mb-1">AI Prompt Engineering Pack</h3>
           <p className="text-xs text-[var(--text-secondary)] mb-2">50+ battle-tested templates for devs and founders.</p>
-          <span className="text-purple-400 font-bold text-sm">$19 →</span>
+          <span className="text-purple-400 font-bold text-sm">0.1 SOL →</span>
         </a>
       </div>
 
