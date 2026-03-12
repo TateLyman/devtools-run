@@ -245,7 +245,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="mt-8 grid sm:grid-cols-2 gap-4">
+      <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/sol-bot-source" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-blue-500/50 transition-colors block">
+          <h3 className="text-base font-semibold text-white mb-1">Solana Trading Bot Source Code</h3>
+          <p className="text-xs text-[var(--text-secondary)] mb-2">4,100+ lines. 42 commands. 7 revenue streams. Full Node.js source.</p>
+          <span className="text-blue-400 font-bold text-sm">2 SOL →</span>
+        </a>
         <a href="/sol-grid-bot" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-green-500/50 transition-colors block">
           <h3 className="text-base font-semibold text-white mb-1">SOL Grid Trading Bot</h3>
           <p className="text-xs text-[var(--text-secondary)] mb-2">Automated grid trading on Jupiter DEX. +11.7% backtested.</p>
