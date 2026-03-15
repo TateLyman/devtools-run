@@ -19,6 +19,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages = ["services", "links"];
 
+  const conversions = [
+    "json/yaml", "yaml/json", "json/csv", "csv/json",
+    "hex/rgb", "rgb/hex", "hex/decimal", "decimal/hex",
+    "binary/decimal", "decimal/binary",
+    "celsius/fahrenheit", "fahrenheit/celsius",
+    "km/miles", "miles/km",
+    "kg/lbs", "lbs/kg",
+    "px/rem", "rem/px",
+    "unix/date", "date/unix",
+    "base64/text", "text/base64",
+    "md/html",
+  ];
+
   return [
     ...tools.map((t) => ({
       url: `${base}/${t}`,
@@ -36,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/${p}`,
       lastModified: now,
       changeFrequency: "weekly" as const,
+      priority: 0.6,
+    })),
+    ...conversions.map((c) => ({
+      url: `${base}/convert/${c}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
   ];
