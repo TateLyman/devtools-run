@@ -245,7 +245,26 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <a href="/bundle" className="mt-8 block rounded-xl border border-emerald-700/40 bg-gradient-to-r from-emerald-900/30 via-green-900/20 to-emerald-900/30 p-6 hover:border-emerald-500/60 transition-colors">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <div className="inline-block bg-emerald-900/50 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-700/50 mb-2">
+              SAVE 35%
+            </div>
+            <h3 className="text-lg font-semibold text-white mb-1">Complete Solana Developer Bundle</h3>
+            <p className="text-sm text-gray-400">
+              All 5 products — Bot Source, Grid Bot, DeFi Toolkit, Trading Guide, Prompt Pack.
+              <span className="text-gray-500 line-through ml-2">3.1 SOL</span>
+            </p>
+          </div>
+          <div className="text-right">
+            <span className="text-2xl font-bold text-emerald-400">2 SOL</span>
+            <p className="text-xs text-emerald-500/80">Save 1.1 SOL</p>
+          </div>
+        </div>
+      </a>
+
+      <div className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <a href="/sol-bot-source" className="rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-5 hover:border-blue-500/50 transition-colors block">
           <h3 className="text-base font-semibold text-white mb-1">Solana Trading Bot Source Code</h3>
           <p className="text-xs text-[var(--text-secondary)] mb-2">4,100+ lines. 42 commands. 7 revenue streams. Full Node.js source.</p>
@@ -271,6 +290,20 @@ export default function HomePage() {
           <p className="text-xs text-[var(--text-secondary)] mb-2">50+ battle-tested templates for devs and founders.</p>
           <span className="text-purple-400 font-bold text-sm">0.1 SOL →</span>
         </a>
+      </div>
+
+      <div className="mt-4 rounded-xl border border-purple-700/30 bg-gradient-to-r from-purple-900/20 to-[var(--bg-secondary)] p-5">
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <h3 className="text-base font-semibold text-white mb-1">Need a Custom Bot or Solana Integration?</h3>
+            <p className="text-xs text-[var(--text-secondary)]">
+              Telegram bots, DeFi integrations, token launches, white-label trading bots. Fast delivery.
+            </p>
+          </div>
+          <a href="/services" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 transition-colors">
+            View Services →
+          </a>
+        </div>
       </div>
 
       <div className="mt-10 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] p-6">

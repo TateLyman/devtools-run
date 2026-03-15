@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sol-trading-guide", "prompt-pack",
   ];
 
+  const pages = ["services", "links"];
+
   return [
     ...tools.map((t) => ({
       url: `${base}/${t}`,
@@ -28,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.9,
+    })),
+    ...pages.map((p) => ({
+      url: `${base}/${p}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.6,
     })),
   ];
 }

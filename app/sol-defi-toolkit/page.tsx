@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const RECIPIENT = "NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr";
 const PRICE_SOL = 0.3;
-const SOLANA_RPC = "https://api.mainnet-beta.solana.com";
 
 export default function SolDefiToolkitPage() {
   const [showPayment, setShowPayment] = useState(false);
@@ -13,37 +12,29 @@ export default function SolDefiToolkitPage() {
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState("");
 
+  const [downloadUrl, setDownloadUrl] = useState("");
+
   async function verifyPayment() {
     if (!txSig.trim()) return;
     setVerifying(true);
     setError("");
     try {
-      const res = await fetch(SOLANA_RPC, {
+      const res = await fetch("/api/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          id: 1,
-          method: "getTransaction",
-          params: [txSig.trim(), { encoding: "jsonParsed", maxSupportedTransactionVersion: 0 }],
-        }),
+        body: JSON.stringify({ txSig: txSig.trim(), product: "sol-defi-toolkit" }),
       });
       const data = await res.json();
-      if (!data.result) {
-        setError("Transaction not found. Please wait a moment and try again.");
+      if (!res.ok) {
+        setError(data.error || "Verification failed.");
         setVerifying(false);
         return;
       }
-      const instructions = data.result.transaction?.message?.instructions || [];
-      let paid = false;
-      for (const ix of instructions) {
-        if (ix.parsed?.type === "transfer" && ix.parsed?.info?.destination === RECIPIENT) {
-          if (ix.parsed.info.lamports >= PRICE_SOL * 1e9 * 0.95) { paid = true; break; }
-        }
-      }
-      if (paid) { setVerified(true); }
-      else { setError(`Payment insufficient. Expected ${PRICE_SOL} SOL to ${RECIPIENT.slice(0, 8)}...`); }
-    } catch { setError("Verification failed. Try again."); }
+      setDownloadUrl(`/api/download?token=${data.token}`);
+      setVerified(true);
+    } catch {
+      setError("Verification failed. Please try again.");
+    }
     setVerifying(false);
   }
 
@@ -91,7 +82,7 @@ export default function SolDefiToolkitPage() {
           <div className="bg-cyan-900/30 border border-cyan-600 rounded-xl p-8 mb-12 text-center">
             <h2 className="text-2xl font-bold mb-4 text-cyan-400">Payment Verified!</h2>
             <p className="text-gray-300 mb-6">Download your toolkit below:</p>
-            <a href="https://github.com/TateLyman/sol-defi-toolkit/archive/refs/heads/main.zip" className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Download DeFi Toolkit</a>
+            <a href={downloadUrl} className="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Download DeFi Toolkit</a>
           </div>
         )}
 

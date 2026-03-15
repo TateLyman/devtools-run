@@ -17,13 +17,15 @@ export default function LinksPage() {
 
         <div className="space-y-3">
           <LinkCard href="https://t.me/solscanitbot" label="Solana Trading Bot (Free)" sub="44+ commands on Telegram" color="blue" external />
+          <LinkCard href="/bundle" label="Complete Bundle — 2 SOL (35% off)" sub="All 5 products, save 1.1 SOL" color="green" />
           <LinkCard href="/sol-bot-source" label="Bot Source Code — 2 SOL" sub="4,500 lines, 7 revenue streams" color="blue" />
           <LinkCard href="/sol-grid-bot" label="Grid Trading Bot — 0.5 SOL" sub="Python, +11.7% backtested" color="green" />
           <LinkCard href="/sol-defi-toolkit" label="DeFi Toolkit — 0.3 SOL" sub="10 production Node.js scripts" color="cyan" />
           <LinkCard href="/sol-trading-guide" label="Trading Guide — 0.2 SOL" sub="8 chapters, beginner to advanced" color="yellow" />
           <LinkCard href="/prompt-pack" label="AI Prompt Pack — 0.1 SOL" sub="50+ templates for devs and founders" color="purple" />
+          <LinkCard href="/services" label="Hire Me — Solana Dev & Bots" sub="Custom bots, DeFi integrations, white-labeling" color="purple" />
           <LinkCard href="/" label="Free Developer Tools" sub="22 browser-based tools, no tracking" color="gray" />
-          <LinkCard href="https://dev.to/tatelyman" label="Dev.to Articles" sub="25+ technical articles" color="gray" external />
+          <LinkCard href="https://dev.to/tatelyman" label="Dev.to Articles" sub="47+ technical articles" color="gray" external />
           <LinkCard href="https://github.com/TateLyman" label="GitHub" sub="Open source projects" color="gray" external />
         </div>
 

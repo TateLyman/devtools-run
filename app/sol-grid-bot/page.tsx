@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 
 const RECIPIENT = "NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr";
-const PRICE_SOL = 0.5; // ~$79 equivalent in SOL
-const SOLANA_RPC = "https://api.mainnet-beta.solana.com";
+const PRICE_SOL = 0.5;
 
 export default function SolGridBotPage() {
   const [showPayment, setShowPayment] = useState(false);
@@ -13,51 +12,26 @@ export default function SolGridBotPage() {
   const [verified, setVerified] = useState(false);
   const [error, setError] = useState("");
 
+  const [downloadUrl, setDownloadUrl] = useState("");
+
   async function verifyPayment() {
     if (!txSig.trim()) return;
     setVerifying(true);
     setError("");
     try {
-      const res = await fetch(SOLANA_RPC, {
+      const res = await fetch("/api/verify-payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          jsonrpc: "2.0",
-          id: 1,
-          method: "getTransaction",
-          params: [txSig.trim(), { encoding: "jsonParsed", maxSupportedTransactionVersion: 0 }],
-        }),
+        body: JSON.stringify({ txSig: txSig.trim(), product: "sol-grid-bot" }),
       });
       const data = await res.json();
-      if (!data.result) {
-        setError("Transaction not found. Please wait a moment and try again.");
+      if (!res.ok) {
+        setError(data.error || "Verification failed.");
         setVerifying(false);
         return;
       }
-
-      // Check if tx sent >= PRICE_SOL to our wallet
-      const instructions = data.result.transaction?.message?.instructions || [];
-      let paid = false;
-      for (const ix of instructions) {
-        if (
-          ix.parsed?.type === "transfer" &&
-          ix.parsed?.info?.destination === RECIPIENT
-        ) {
-          const lamports = ix.parsed.info.lamports;
-          if (lamports >= PRICE_SOL * 1e9 * 0.95) {
-            paid = true;
-            break;
-          }
-        }
-      }
-
-      if (paid) {
-        setVerified(true);
-      } else {
-        setError(
-          `Transaction found but payment amount insufficient. Expected ${PRICE_SOL} SOL to ${RECIPIENT.slice(0, 8)}...`
-        );
-      }
+      setDownloadUrl(`/api/download?token=${data.token}`);
+      setVerified(true);
     } catch {
       setError("Verification failed. Please try again.");
     }
@@ -129,7 +103,7 @@ export default function SolGridBotPage() {
               Thank you for your purchase. Download your files below:
             </p>
             <a
-              href="https://github.com/TateLyman/sol-grid-bot/archive/refs/heads/main.zip"
+              href={downloadUrl}
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
             >
               Download SOL Grid Bot
