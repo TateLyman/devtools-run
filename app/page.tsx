@@ -163,6 +163,41 @@ const tools = [
       "Calculate dimensions from an aspect ratio (16:9, 4:3, 1:1, 21:9, 9:16) or enter any two dimensions to detect the ratio.",
     icon: "AR",
   },
+  {
+    href: "/html-encode",
+    name: "HTML Entity Encoder / Decoder",
+    description:
+      "Encode special characters to HTML entities or decode them back to text. Handles &, <, >, quotes, and Unicode.",
+    icon: "HE",
+  },
+  {
+    href: "/css-minify",
+    name: "CSS Minifier / Beautifier",
+    description:
+      "Minify CSS to reduce file size or beautify it for readability. Shows original vs minified size savings.",
+    icon: "CS",
+  },
+  {
+    href: "/number-base",
+    name: "Number Base Converter",
+    description:
+      "Convert numbers between binary, octal, decimal, and hexadecimal. Supports arbitrarily large numbers via BigInt.",
+    icon: "NB",
+  },
+  {
+    href: "/text-count",
+    name: "Text Character / Word Counter",
+    description:
+      "Real-time character, word, sentence, paragraph, and line counts. Reading time estimate and most common words.",
+    icon: "WC",
+  },
+  {
+    href: "/epoch",
+    name: "Epoch / Date Batch Converter",
+    description:
+      "Convert multiple Unix timestamps to dates or dates to timestamps in bulk. Auto-detects seconds vs milliseconds.",
+    icon: "EP",
+  },
 ];
 
 export default function HomePage() {
@@ -176,7 +211,7 @@ export default function HomePage() {
             "@type": "WebApplication",
             "name": "DevTools.run",
             "url": "https://devtools-site-delta.vercel.app",
-            "description": "22 free browser-based developer tools and a Solana Scanner Telegram bot. JSON formatter, Base64 encoder, JWT decoder, Solana tools, and more.",
+            "description": "27 free browser-based developer tools and a Solana Scanner Telegram bot. JSON formatter, Base64 encoder, JWT decoder, Solana tools, and more.",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Any",
             "offers": {
