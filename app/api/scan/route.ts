@@ -184,7 +184,7 @@ export async function GET(req: NextRequest) {
     };
 
     const [rpcRes, jupiterRes, dexRes] = await Promise.allSettled([
-      fetch("https://api.mainnet-beta.solana.com", {
+      fetch(`https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY || "d56fdc82-51fb-4718-b521-6af1e99b83ea"}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(rpcBody),

@@ -5,7 +5,9 @@ import fs from "fs";
 import path from "path";
 
 const RECIPIENT = "NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr";
-const SOLANA_RPC = "https://api.mainnet-beta.solana.com";
+const SOLANA_RPC = process.env.HELIUS_API_KEY
+  ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY}`
+  : "https://api.mainnet-beta.solana.com";
 const SECRET = process.env.DOWNLOAD_SECRET || "";
 
 const PRODUCTS: Record<string, { price: number; repo: string }> = {
