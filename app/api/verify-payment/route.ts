@@ -16,6 +16,8 @@ const PRODUCTS: Record<string, { price: number; repo: string }> = {
   "sol-defi-toolkit": { price: 0.3, repo: "TateLyman/sol-defi-toolkit" },
   "prompt-pack": { price: 0.1, repo: "TateLyman/ai-prompt-pack" },
   "bundle": { price: 2, repo: "TateLyman/sol-telegram-bot-source" },
+  "sol-trading-guide": { price: 0.5, repo: "TateLyman/sol-telegram-bot-source" },
+  "bot-builder": { price: 1, repo: "TateLyman/sol-telegram-bot-source" },
 };
 
 // Simple file-based store for used transaction signatures
