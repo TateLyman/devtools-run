@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "timestamp", "color", "uuid", "password", "cron", "chmod",
     "lorem", "markdown", "qr", "diff", "aspect-ratio", "yaml-json",
     "sol-calc", "sol-scan", "sol-token", "sol-wallet",
+    "sol-staking", "sol-converter", "gas-tracker",
     "html-encode", "css-minify", "number-base", "text-count", "epoch",
   ];
 
