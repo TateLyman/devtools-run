@@ -3,6 +3,13 @@ import TipButton from "./components/TipButton";
 
 const tools = [
   {
+    href: "/code-review",
+    name: "Code Review Tool",
+    description:
+      "Paste code to find bugs, security vulnerabilities, performance issues, and get a quality score. Free 3 reviews/day.",
+    icon: "CR",
+  },
+  {
     href: "/json",
     name: "JSON Formatter & Validator",
     description:

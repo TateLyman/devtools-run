@@ -11,11 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sol-calc", "sol-scan", "sol-token", "sol-wallet",
     "sol-staking", "sol-converter", "gas-tracker",
     "html-encode", "css-minify", "number-base", "text-count", "epoch",
+    "code-review",
   ];
 
   const products = [
     "sol-bot", "sol-bot-source", "sol-grid-bot", "sol-defi-toolkit",
-    "sol-trading-guide", "prompt-pack",
+    "sol-trading-guide", "prompt-pack", "white-label",
   ];
 
   const pages = ["services", "links"];
