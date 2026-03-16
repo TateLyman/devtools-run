@@ -81,6 +81,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
+    // Airdrops tracker page
+    {
+      url: `${base}/airdrops`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    },
     // Token checker landing page
     {
       url: `${base}/token`,
