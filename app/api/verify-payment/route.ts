@@ -18,6 +18,9 @@ const PRODUCTS: Record<string, { price: number; repo: string }> = {
   "bundle": { price: 2, repo: "TateLyman/sol-telegram-bot-source" },
   "sol-trading-guide": { price: 0.5, repo: "TateLyman/sol-telegram-bot-source" },
   "bot-builder": { price: 1, repo: "TateLyman/sol-telegram-bot-source" },
+  "white-label-starter": { price: 0.5, repo: "" },
+  "white-label-pro": { price: 1, repo: "" },
+  "white-label-enterprise": { price: 2, repo: "" },
 };
 
 // Simple file-based store for used transaction signatures
