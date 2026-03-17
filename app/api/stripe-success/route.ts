@@ -21,6 +21,7 @@ const DOWNLOADABLE_PRODUCTS = new Set([
   "prompt-pack",
   "bundle",
   "bot-builder",
+  "automation-kit",
 ]);
 
 // Subscription products — no download, show confirmation

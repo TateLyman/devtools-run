@@ -9,6 +9,7 @@ const PRODUCTS: Record<string, string> = {
   "sol-grid-bot": "TateLyman/sol-grid-bot",
   "sol-defi-toolkit": "TateLyman/sol-defi-toolkit",
   "prompt-pack": "TateLyman/ai-prompt-pack",
+  "automation-kit": "TateLyman/social-media-automation-kit",
 };
 
 function verifyToken(token: string): string | null {
