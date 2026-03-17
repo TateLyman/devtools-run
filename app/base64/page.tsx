@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 export default function Base64Page() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
@@ -87,12 +89,6 @@ export default function Base64Page() {
         <p className="text-[var(--text-secondary)] text-sm">
           Encode or decode text and files to and from Base64. Supports UTF-8.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       <div className="flex items-center gap-3 mb-4">
@@ -185,11 +181,7 @@ export default function Base64Page() {
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

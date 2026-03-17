@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 type Base = "2" | "8" | "10" | "16";
 
 const BASE_LABELS: Record<Base, string> = {
@@ -119,12 +121,6 @@ export default function NumberBasePage() {
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
-
       <div className="max-w-xl">
         <label className="block text-sm font-medium mb-2">Input Base</label>
         <div className="flex gap-2 mb-4 flex-wrap">
@@ -195,11 +191,7 @@ export default function NumberBasePage() {
         )}
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

@@ -2,6 +2,8 @@
 
 import { useState, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 const CHAR_SETS = {
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   lowercase: "abcdefghijklmnopqrstuvwxyz",
@@ -85,12 +87,6 @@ export default function PasswordGeneratorPage() {
           Generate strong, random passwords with customizable options. Runs
           entirely in your browser using the Web Crypto API.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       <div className="space-y-6">
@@ -197,11 +193,7 @@ export default function PasswordGeneratorPage() {
         </button>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 /* ── Minimal QR encoder (numeric mode, byte mode, version 1-10) ── */
 
 // We generate a QR code entirely with canvas using a compact implementation.
@@ -425,10 +427,6 @@ export default function QrPage() {
         </p>
       </div>
 
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
-      </div>
-
       <div className="grid gap-6 lg:grid-cols-2">
         <div>
           <label className="block text-sm font-medium mb-2">Text or URL</label>
@@ -485,9 +483,7 @@ export default function QrPage() {
         </div>
       </div>
 
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">About QR Code Generator</h2>

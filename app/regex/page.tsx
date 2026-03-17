@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 export default function RegexTesterPage() {
   const [pattern, setPattern] = useState("");
   const [flags, setFlags] = useState("g");
@@ -87,12 +89,6 @@ export default function RegexTesterPage() {
           Test regular expression patterns against text with real-time match
           highlighting.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       <div className="space-y-4">
@@ -215,11 +211,7 @@ export default function RegexTesterPage() {
         )}
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

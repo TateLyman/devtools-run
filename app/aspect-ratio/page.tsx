@@ -2,6 +2,8 @@
 
 import { useState, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 const PRESETS = [
   { label: "16:9", w: 16, h: 9 },
   { label: "4:3", w: 4, h: 3 },
@@ -76,10 +78,6 @@ export default function AspectRatioPage() {
           Calculate dimensions from an aspect ratio, or find the ratio of any
           two dimensions. Runs entirely in your browser.
         </p>
-      </div>
-
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
@@ -242,9 +240,7 @@ export default function AspectRatioPage() {
         </div>
       </div>
 
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

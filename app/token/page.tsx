@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import TokenSearchBox from "./TokenSearchBox";
 
+import AdSlot from "../components/AdSlot";
+
 export const metadata: Metadata = {
   title: "Solana Token Checker — Is This Token Safe?",
   description:
@@ -182,10 +184,7 @@ export default function TokenLandingPage() {
         </div>
       </section>
 
-      {/* Ad slot */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* SEO content */}
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-3">

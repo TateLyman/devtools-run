@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 interface TextStats {
   characters: number;
   charactersNoSpaces: number;
@@ -107,12 +109,6 @@ export default function TextCountPage() {
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
-
       <div>
         <label className="block text-sm font-medium mb-2">Enter Text</label>
         <textarea
@@ -166,11 +162,7 @@ export default function TextCountPage() {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

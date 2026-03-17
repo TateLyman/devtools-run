@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 function parseMarkdown(md: string): string {
   let html = md;
 
@@ -126,12 +128,6 @@ Inline \`code\` is also supported.`
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
-
       <div className="grid gap-4 lg:grid-cols-2">
         <div>
           <label className="block text-sm font-medium mb-2">
@@ -169,11 +165,7 @@ Inline \`code\` is also supported.`
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

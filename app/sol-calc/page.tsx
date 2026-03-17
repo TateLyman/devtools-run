@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 export default function SolCalcPage() {
   const [solPrice, setSolPrice] = useState<number | null>(null);
   const [solAmount, setSolAmount] = useState("1");
@@ -69,12 +71,6 @@ export default function SolCalcPage() {
         <p className="text-[var(--text-secondary)] text-sm">
           Convert between Solana (SOL) and USD with live prices from CoinGecko.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       {solPrice !== null && (
@@ -157,11 +153,7 @@ export default function SolCalcPage() {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <div className="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-800/30">
         <h3 className="text-lg font-bold text-white mb-2">Trade Solana Tokens on Telegram</h3>

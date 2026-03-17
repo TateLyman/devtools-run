@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 interface Prices {
   solana: { usd: number; usd_24h_change: number };
   ethereum: { usd: number; usd_24h_change: number };
@@ -88,11 +90,6 @@ export default function SolConverterPage() {
           Convert between Solana (SOL) and USD with live prices. Compare with
           ETH and BTC.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
       </div>
 
       {/* Price Cards */}
@@ -348,10 +345,7 @@ export default function SolConverterPage() {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* CTA */}
       <div className="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-800/30">

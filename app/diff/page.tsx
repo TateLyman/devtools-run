@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 interface DiffLine {
   type: "added" | "removed" | "unchanged";
   text: string;
@@ -93,12 +95,6 @@ export default function DiffPage() {
           Compare two pieces of text side by side with line-by-line diff
           highlighting. Runs entirely in your browser.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -206,11 +202,7 @@ export default function DiffPage() {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">About Text Diff</h2>

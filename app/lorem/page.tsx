@@ -2,6 +2,8 @@
 
 import { useState, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 const LOREM_WORDS = [
   "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
   "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore",
@@ -120,12 +122,6 @@ export default function LoremIpsumPage() {
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
-
       <div className="space-y-4">
         <div className="flex flex-wrap items-end gap-4">
           <div>
@@ -186,11 +182,7 @@ export default function LoremIpsumPage() {
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

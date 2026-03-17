@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 const MAJOR_KEYWORDS = [
   "SELECT",
   "FROM",
@@ -294,10 +296,6 @@ export default function SqlPage() {
         </p>
       </div>
 
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
-      </div>
-
       <div className="grid gap-4 lg:grid-cols-2">
         <div>
           <label className="block text-sm font-medium mb-2">Input SQL</label>
@@ -340,9 +338,7 @@ export default function SqlPage() {
         </div>
       </div>
 
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">About SQL Formatter</h2>

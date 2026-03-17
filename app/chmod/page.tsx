@@ -2,6 +2,8 @@
 
 import { useState, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 type PermSet = { read: boolean; write: boolean; execute: boolean };
 
 function permToNum(p: PermSet): number {
@@ -83,10 +85,6 @@ export default function ChmodPage() {
           Toggle permissions or type a numeric value. See chmod notation in
           real-time.
         </p>
-      </div>
-
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -200,9 +198,7 @@ export default function ChmodPage() {
         </div>
       </div>
 
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

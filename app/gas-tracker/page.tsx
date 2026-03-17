@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 export default function GasTrackerPage() {
   const [solPrice, setSolPrice] = useState<number | null>(null);
   const [ethPrice, setEthPrice] = useState<number | null>(null);
@@ -111,11 +113,6 @@ export default function GasTrackerPage() {
           Real-time Solana transaction fees compared to Ethereum. See why
           Solana is the cheapest chain for crypto trading.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
       </div>
 
       {error && (
@@ -371,10 +368,7 @@ export default function GasTrackerPage() {
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* CTA */}
       <div className="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-800/30">

@@ -49,8 +49,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
+
   return (
     <html lang="en">
+      <head>
+        {/* Google AdSense auto-ads — only loads when NEXT_PUBLIC_ADSENSE_ID is set */}
+        {adsenseId && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+            crossOrigin="anonymous"
+          />
+        )}
+      </head>
       <body className="min-h-screen flex flex-col">
         <header className="border-b border-[var(--border)] sticky top-0 z-50 bg-[var(--bg-primary)]/95 backdrop-blur-sm">
           <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">

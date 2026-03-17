@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+import AdSlot from "../../components/AdSlot";
+
 /* ------------------------------------------------------------------ */
 /*  Types                                                             */
 /* ------------------------------------------------------------------ */
@@ -565,10 +567,7 @@ export default function TokenReport({ mint }: { mint: string }) {
         </a>
       </div>
 
-      {/* Ad slot */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* SEO content */}
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">

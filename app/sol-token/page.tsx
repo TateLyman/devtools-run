@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 interface TokenData {
   name: string;
   symbol: string;
@@ -158,12 +160,6 @@ export default function SolTokenPage() {
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
-
       {/* Input */}
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">
@@ -299,11 +295,7 @@ export default function SolTokenPage() {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <div className="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-800/30">
         <h3 className="text-lg font-bold text-white mb-2">Trade Solana Tokens on Telegram</h3>

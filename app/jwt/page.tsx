@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 function base64UrlDecode(str: string): string {
   let base64 = str.replace(/-/g, "+").replace(/_/g, "/");
   while (base64.length % 4) base64 += "=";
@@ -85,12 +87,6 @@ export default function JwtDecoderPage() {
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
-
       <div>
         <label className="block text-sm font-medium mb-2">
           Paste JWT Token
@@ -160,11 +156,7 @@ export default function JwtDecoderPage() {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">About JWT Tokens</h2>

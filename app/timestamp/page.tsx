@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 export default function TimestampPage() {
   const [timestamp, setTimestamp] = useState("");
   const [dateString, setDateString] = useState("");
@@ -69,12 +71,6 @@ export default function TimestampPage() {
           Convert between Unix timestamps and human-readable dates. Supports
           seconds and milliseconds.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-4 mb-6 flex items-center justify-between">
@@ -158,11 +154,7 @@ export default function TimestampPage() {
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

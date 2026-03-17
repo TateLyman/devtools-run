@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 interface RGB {
   r: number;
   g: number;
@@ -146,12 +148,6 @@ export default function ColorConverterPage() {
         <p className="text-[var(--text-secondary)] text-sm">
           Convert colors between HEX, RGB, and HSL formats with a live preview.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
       </div>
 
       {/* Color preview */}
@@ -310,11 +306,7 @@ export default function ColorConverterPage() {
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        {/* AD SLOT: in-content ad */}
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

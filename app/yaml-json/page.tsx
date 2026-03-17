@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 /* ── Basic YAML parser ── */
 
 interface YamlLine {
@@ -332,10 +334,6 @@ export default function YamlJsonPage() {
         </p>
       </div>
 
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
-      </div>
-
       <div className="flex items-center gap-3 mb-4">
         <button
           onClick={() => { setMode("yaml-to-json"); setRight(""); setError(""); }}
@@ -414,9 +412,7 @@ export default function YamlJsonPage() {
         </div>
       </div>
 
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">

@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 export default function SolStakingPage() {
   const [solPrice, setSolPrice] = useState<number | null>(null);
   const [solAmount, setSolAmount] = useState("100");
@@ -93,11 +95,6 @@ export default function SolStakingPage() {
           Estimate your Solana staking rewards. Enter your SOL amount and APY to
           see projected daily, weekly, monthly, and yearly earnings.
         </p>
-      </div>
-
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
       </div>
 
       {solPrice !== null && (
@@ -275,10 +272,7 @@ export default function SolStakingPage() {
         </div>
       </div>
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* CTA */}
       <div className="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-xl p-6 border border-blue-800/30">

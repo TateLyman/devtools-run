@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 /* ─── Types ─── */
 interface Issue {
   line: number;
@@ -969,10 +971,7 @@ export default function CodeReviewPage() {
         </div>
       )}
 
-      {/* AD SLOT */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* SEO Content */}
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-4">

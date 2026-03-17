@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ALL_CONVERSIONS } from "./conversions";
 
+import AdSlot from "../../../components/AdSlot";
+
 /* ════════════════════════════════════════════════════════════════════
    YAML PARSER (hand-written, no external deps)
    ════════════════════════════════════════════════════════════════════ */
@@ -624,11 +626,6 @@ export default function Converter({ from, to }: { from: string; to: string }) {
         </p>
       </div>
 
-      {/* AD SLOT - Top */}
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
-      </div>
-
       {/* PX/REM base font size control */}
       {(from === "px" || from === "rem") && (to === "rem" || to === "px") && (
         <div className="mb-4 flex items-center gap-3">
@@ -713,10 +710,7 @@ export default function Converter({ from, to }: { from: string; to: string }) {
         </div>
       )}
 
-      {/* AD SLOT - Bottom */}
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       {/* Related conversions */}
       {related.length > 0 && (

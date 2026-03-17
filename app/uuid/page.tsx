@@ -2,6 +2,8 @@
 
 import { useState, useCallback } from "react";
 
+import AdSlot from "../components/AdSlot";
+
 function generateUUIDv4(): string {
   const bytes = new Uint8Array(16);
   crypto.getRandomValues(bytes);
@@ -63,10 +65,6 @@ export default function UuidPage() {
           Generate random v4 UUIDs. Bulk generate up to 100 at once. Runs
           entirely in your browser.
         </p>
-      </div>
-
-      <div className="ad-slot mb-6">
-        <span>Ad Space</span>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[300px_1fr]">
@@ -141,9 +139,7 @@ export default function UuidPage() {
         </div>
       </div>
 
-      <div className="ad-slot mt-8">
-        <span>Ad Space</span>
-      </div>
+      <AdSlot className="mt-8" />
 
       <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
         <h2 className="text-lg font-semibold text-white">About UUID Generator</h2>

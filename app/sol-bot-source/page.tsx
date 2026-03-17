@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const RECIPIENT = "NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr";
 const PRICE_SOL = 2;
+const PRICE_USD = 299;
 
 export default function SolBotSourcePage() {
   const [showPayment, setShowPayment] = useState(false);
@@ -51,13 +52,21 @@ export default function SolBotSourcePage() {
           <p className="text-2xl font-bold text-blue-400 mb-6">
             Running live as @solscanitbot with real users
           </p>
-          <button
-            onClick={() => setShowPayment(true)}
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer"
-          >
-            Get the Source Code — {PRICE_SOL} SOL
-          </button>
-          <p className="text-gray-500 text-sm mt-2">Pay with SOL. Instant delivery.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={() => setShowPayment(true)}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer"
+            >
+              Pay with SOL — {PRICE_SOL} SOL
+            </button>
+            <a
+              href="/api/stripe-checkout?product=sol-bot-source"
+              className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+            >
+              Pay with Card — ${PRICE_USD}
+            </a>
+          </div>
+          <p className="text-gray-500 text-sm mt-2">SOL or credit/debit card. Instant delivery.</p>
         </div>
 
         {showPayment && !verified && (
@@ -232,12 +241,20 @@ export default function SolBotSourcePage() {
         </div>
 
         <div className="text-center mb-12">
-          <button
-            onClick={() => setShowPayment(true)}
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer"
-          >
-            Get the Source Code — {PRICE_SOL} SOL
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              onClick={() => setShowPayment(true)}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer"
+            >
+              Pay with SOL — {PRICE_SOL} SOL
+            </button>
+            <a
+              href="/api/stripe-checkout?product=sol-bot-source"
+              className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+            >
+              Pay with Card — ${PRICE_USD}
+            </a>
+          </div>
           <p className="text-gray-500 text-sm mt-4">
             Live demo: <a href="https://t.me/solscanitbot" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">@solscanitbot on Telegram</a>
           </p>
