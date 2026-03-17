@@ -57,6 +57,11 @@ const PRODUCTS: Record<string, ProductConfig> = {
     priceUsd: 99.99,
     mode: "subscription",
   },
+  "automation-kit": {
+    name: "Social Media Automation Kit",
+    priceUsd: 99,
+    mode: "payment",
+  },
 };
 
 export async function GET(req: NextRequest) {
