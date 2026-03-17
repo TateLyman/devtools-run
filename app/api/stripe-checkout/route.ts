@@ -119,10 +119,11 @@ export async function GET(req: NextRequest) {
     const session = await stripe.checkout.sessions.create(sessionParams);
 
     return NextResponse.redirect(session.url!, 303);
-  } catch (e) {
-    console.error("Stripe checkout error:", e);
+  } catch (e: unknown) {
+    const errMsg = e instanceof Error ? e.message : String(e);
+    console.error("Stripe checkout error:", errMsg);
     return NextResponse.json(
-      { error: "Failed to create checkout session" },
+      { error: "Failed to create checkout session", detail: errMsg },
       { status: 500 }
     );
   }
