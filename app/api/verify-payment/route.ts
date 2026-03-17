@@ -11,7 +11,7 @@ const SOLANA_RPC = process.env.HELIUS_API_KEY
 const SECRET = process.env.DOWNLOAD_SECRET || "";
 
 const PRODUCTS: Record<string, { price: number; repo: string }> = {
-  "sol-bot-source": { price: 2, repo: "TateLyman/sol-telegram-bot-source" },
+  "sol-bot-source": { price: 1, repo: "TateLyman/sol-telegram-bot-source" },
   "sol-grid-bot": { price: 0.5, repo: "TateLyman/sol-grid-bot" },
   "sol-defi-toolkit": { price: 0.3, repo: "TateLyman/sol-defi-toolkit" },
   "prompt-pack": { price: 0.1, repo: "TateLyman/ai-prompt-pack" },

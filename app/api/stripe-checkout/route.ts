@@ -15,7 +15,7 @@ interface ProductConfig {
 const PRODUCTS: Record<string, ProductConfig> = {
   "sol-bot-source": {
     name: "Solana Telegram Trading Bot — Full Source Code",
-    priceUsd: 299,
+    priceUsd: 149,
     mode: "payment",
   },
   "sol-grid-bot": {
