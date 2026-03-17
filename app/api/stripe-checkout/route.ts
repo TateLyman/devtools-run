@@ -1,13 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import Stripe from "stripe";
-
-function getStripe() {
-  if (!process.env.STRIPE_SECRET_KEY) return null;
-  return new Stripe(process.env.STRIPE_SECRET_KEY, {
-    maxNetworkRetries: 3,
-    timeout: 30000,
-  });
-}
 
 interface ProductConfig {
   name: string;
@@ -78,50 +69,54 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  const product = PRODUCTS[productId];
-  const origin = req.nextUrl.origin;
-
-  const stripe = getStripe();
-  if (!stripe) {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  if (!secretKey) {
     return NextResponse.json({ error: "Payments not configured" }, { status: 503 });
   }
 
-  try {
-    const sessionParams: Stripe.Checkout.SessionCreateParams = {
-      payment_method_types: ["card"],
-      line_items: [
-        {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: product.name,
-            },
-            unit_amount: Math.round(product.priceUsd * 100),
-            ...(product.mode === "subscription" && {
-              recurring: { interval: "month" as const },
-            }),
-          },
-          quantity: 1,
-        },
-      ],
-      mode: product.mode,
-      success_url: `${origin}/api/stripe-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/${productId}`,
-      metadata: {
-        product_id: productId,
-      },
-    };
+  const product = PRODUCTS[productId];
+  const origin = req.nextUrl.origin;
 
-    // For subscriptions, also store product_id on subscription metadata
+  try {
+    // Use Stripe REST API directly with fetch (avoids SDK network issues on Vercel)
+    const params = new URLSearchParams();
+    params.append("payment_method_types[]", "card");
+    params.append("line_items[0][price_data][currency]", "usd");
+    params.append("line_items[0][price_data][product_data][name]", product.name);
+    params.append("line_items[0][price_data][unit_amount]", String(Math.round(product.priceUsd * 100)));
     if (product.mode === "subscription") {
-      sessionParams.subscription_data = {
-        metadata: { product_id: productId },
-      };
+      params.append("line_items[0][price_data][recurring][interval]", "month");
+    }
+    params.append("line_items[0][quantity]", "1");
+    params.append("mode", product.mode);
+    params.append("success_url", `${origin}/api/stripe-success?session_id={CHECKOUT_SESSION_ID}`);
+    params.append("cancel_url", `${origin}/${productId}`);
+    params.append("metadata[product_id]", productId);
+
+    if (product.mode === "subscription") {
+      params.append("subscription_data[metadata][product_id]", productId);
     }
 
-    const session = await stripe.checkout.sessions.create(sessionParams);
+    const res = await fetch("https://api.stripe.com/v1/checkout/sessions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${secretKey}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: params.toString(),
+    });
 
-    return NextResponse.redirect(session.url!, 303);
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error("Stripe API error:", data);
+      return NextResponse.json(
+        { error: "Failed to create checkout session", detail: data.error?.message },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.redirect(data.url, 303);
   } catch (e: unknown) {
     const errMsg = e instanceof Error ? e.message : String(e);
     console.error("Stripe checkout error:", errMsg);
