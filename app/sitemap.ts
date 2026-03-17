@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { getAllSlugs } from "./is-safe/tokens";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://devtools-site-delta.vercel.app";
@@ -103,6 +104,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${base}/token/${mint}`,
       lastModified: now,
       changeFrequency: "daily" as const,
+      priority: 0.7,
+    })),
+    // Token safety check landing page
+    {
+      url: `${base}/is-safe`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.9,
+    },
+    // Individual token safety check pages (programmatic SEO)
+    ...getAllSlugs().map((slug) => ({
+      url: `${base}/is-safe/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
   ];
