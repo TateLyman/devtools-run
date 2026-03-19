@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bot-builder", "api-access",
   ];
 
-  const pages = ["services", "links"];
+  const pages = ["services", "links", "hire", "advertise"];
 
   const conversions = [
     "json/yaml", "yaml/json", "json/csv", "csv/json",

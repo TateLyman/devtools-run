@@ -112,6 +112,12 @@ export default function RootLayout({
               >
                 Color
               </Link>
+              <Link
+                href="/hire"
+                className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+              >
+                Hire Me
+              </Link>
             </nav>
           </div>
         </header>

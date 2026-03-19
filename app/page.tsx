@@ -337,13 +337,13 @@ export default function HomePage() {
       <div className="mt-4 rounded-xl border border-purple-700/30 bg-gradient-to-r from-purple-900/20 to-[var(--bg-secondary)] p-5">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <h3 className="text-base font-semibold text-white mb-1">Need a Custom Bot or Solana Integration?</h3>
+            <h3 className="text-base font-semibold text-white mb-1">Need an MCP Server, Trading Bot, or DeFi Protocol?</h3>
             <p className="text-xs text-[var(--text-secondary)]">
-              Telegram bots, DeFi integrations, token launches, white-label trading bots. Fast delivery.
+              MCP servers, trading bots, AI automation, DeFi protocols, full-stack web apps. Production-grade delivery.
             </p>
           </div>
-          <a href="/services" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-purple-600 text-white hover:bg-purple-700 transition-colors">
-            View Services →
+          <a href="/hire" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-700 transition-colors">
+            View Portfolio & Hire →
           </a>
         </div>
       </div>

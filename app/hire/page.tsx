@@ -1,4 +1,18 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hire a Full-Stack Blockchain & MCP Developer | Tate Lyman",
+  description:
+    "MCP server development, Solana trading bots, DeFi protocols, AI automation. Production code running on mainnet. View portfolio and get in touch.",
+  openGraph: {
+    title: "Hire a Full-Stack Blockchain & MCP Developer",
+    description:
+      "MCP servers, trading bots, DeFi protocols, AI automation. Production code on Solana mainnet.",
+    url: "https://devtools-site-delta.vercel.app/hire",
+    type: "website",
+  },
+};
 
 const TELEGRAM = "@Krbva";
 const EMAIL = "lymantate2@gmail.com";
