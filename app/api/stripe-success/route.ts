@@ -3,8 +3,9 @@ import Stripe from "stripe";
 import crypto from "crypto";
 
 function getStripe() {
-  if (!process.env.STRIPE_SECRET_KEY) return null;
-  return new Stripe(process.env.STRIPE_SECRET_KEY, {
+  const key = process.env.STRIPE_SECRET_KEY?.trim();
+  if (!key) return null;
+  return new Stripe(key, {
     maxNetworkRetries: 3,
     timeout: 30000,
   });

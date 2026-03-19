@@ -74,7 +74,7 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  const secretKey = process.env.STRIPE_SECRET_KEY;
+  const secretKey = process.env.STRIPE_SECRET_KEY?.trim();
   if (!secretKey) {
     return NextResponse.json({ error: "Payments not configured" }, { status: 503 });
   }
