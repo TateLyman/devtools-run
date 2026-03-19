@@ -26,7 +26,7 @@ const caseStudies = [
     problem:
       "AI agents need to interact with Solana — checking balances, parsing transactions, resolving domains — but no MCP servers existed for blockchain operations.",
     approach: [
-      "Built MCP server exposing 8 Solana tools to any AI client (Claude, GPT, etc.)",
+      "Built MCP server exposing 8 Solana tools to any MCP-compatible AI client",
       "Token balance lookups, transaction parsing, .sol domain resolution, network status",
       "Helius DAS API integration for rich token metadata",
       "TypeScript + @modelcontextprotocol/sdk + @solana/web3.js + Zod validation",
@@ -102,7 +102,7 @@ const caseStudies = [
     ],
     results: [
       "104 arbitrage opportunities detected in first scan",
-      "Identifies markets with 25-40% guaranteed profit margins",
+      "Identifies markets with 25-40% spread opportunities",
       "Scans 2,000 markets in under 5 seconds",
       "Zero dependencies — pure Node.js, native https module",
     ],
@@ -119,7 +119,7 @@ const services = [
     subtitle: "Connect AI agents to your APIs, databases, or blockchain",
     price: "$1,500 - $5,000",
     bullets: [
-      "Custom MCP servers for Claude, ChatGPT, or any MCP-compatible client",
+      "Custom MCP servers for any AI platform — works with all MCP-compatible clients",
       "Tool definitions, resource management, authentication handling",
       "Solana/EVM blockchain MCP integrations",
       "Full source code, documentation, and deployment guide",
@@ -174,7 +174,7 @@ const services = [
 const techStack = [
   { category: "Languages", items: ["TypeScript", "JavaScript", "Rust", "Python"] },
   { category: "Blockchain", items: ["Solana Web3.js", "Anchor", "Jupiter V6", "Drift SDK", "Jito", "Helius", "SPL Tokens"] },
-  { category: "AI / MCP", items: ["Model Context Protocol", "Claude API", "LLM Integration", "RAG Pipelines", "Agentic AI"] },
+  { category: "AI / MCP", items: ["Model Context Protocol", "LLM APIs", "LLM Integration", "RAG Pipelines", "Agentic AI"] },
   { category: "Frontend", items: ["Next.js", "React", "Tailwind CSS", "Vercel"] },
   { category: "Backend", items: ["Node.js", "Express", "PostgreSQL", "Redis", "WebSockets"] },
   { category: "APIs", items: ["Telegram Bot API", "Jupiter Aggregator", "Polymarket Gamma", "Helius DAS"] },
@@ -223,7 +223,7 @@ export default function HirePage() {
             { number: "5,400+", label: "Lines of production code" },
             { number: "44", label: "Bot commands shipped" },
             { number: "45+", label: "Technical articles published" },
-            { number: "8", label: "MCP tools built" },
+            { number: "1st", label: "Solana MCP server (public)" },
           ].map((s, i) => (
             <div key={i} className="bg-gray-900 rounded-xl p-5 text-center border border-gray-800">
               <div className="text-2xl md:text-3xl font-bold text-white mb-1">{s.number}</div>
@@ -409,7 +409,7 @@ export default function HirePage() {
               Dev.to
             </a>
             <span>|</span>
-            <span>Also on Upwork, Fiverr, and Contra</span>
+            <span>Available on all major freelance platforms</span>
           </div>
         </div>
 
