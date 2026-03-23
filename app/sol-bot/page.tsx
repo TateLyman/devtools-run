@@ -9,17 +9,29 @@ export default function SolBotPage() {
             Solana Trading Bot for Telegram
           </h1>
           <p className="text-xl text-gray-400 mb-6">
-            Free. Fast. MEV-Protected. 40+ commands. 4,100+ lines of pure
-            Node.js.
+            Free. Fast. MEV-Protected. 44 commands + Mini App trading UI.
           </p>
-          <a
-            href="https://t.me/solscanitbot"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
-          >
-            Open @solscanitbot on Telegram
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
+            <a
+              href="https://t.me/solscanitbot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+            >
+              Open @solscanitbot on Telegram
+            </a>
+            <a
+              href="https://sol-telegram-miniapp.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+            >
+              Preview Mini App
+            </a>
+          </div>
+          <p className="text-sm text-green-400 font-semibold">
+            Earn 50% of your friends&apos; trading fees for 14 days, then 30% lifetime
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-12">
@@ -53,7 +65,7 @@ export default function SolBotPage() {
           />
           <Feature
             title="3-Tier Referral System"
-            desc="Earn 30% of trading fees from direct referrals, 10% from tier 2, 5% from tier 3. Points leaderboard with seasons."
+            desc="Earn 50% of trading fees from new referrals for 14 days, then 30% lifetime. 10% from tier 2, 5% from tier 3. Points leaderboard with seasons."
           />
           <Feature
             title="Premium Tier"
@@ -123,7 +135,7 @@ export default function SolBotPage() {
             <Cmd cmd="/bump" desc="Volume bot" />
             <Cmd cmd="/tip" desc="Tip the dev" />
             <Cmd cmd="/settings" desc="Slippage & auto-TP" />
-            <Cmd cmd="/referral" desc="Earn 30% on referrals" />
+            <Cmd cmd="/referral" desc="Earn 50% on referrals" />
             <Cmd cmd="/price" desc="Token price lookup" />
             <Cmd cmd="/pnl" desc="Profit/loss view" />
             <Cmd cmd="/balance" desc="SOL balance" />
