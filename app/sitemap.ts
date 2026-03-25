@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "color-converter", "qr-code-generator",
     "mortgage-calculator", "bmi-calculator", "tip-calculator",
     "compound-interest", "stopwatch", "character-counter",
-    "age-calculator", "percentage-calculator",
+    "age-calculator", "percentage-calculator", "free-api",
   ];
 
   const products = [
