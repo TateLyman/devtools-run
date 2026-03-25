@@ -16,7 +16,7 @@ export default function PackageJsonGenerator() {
       dev: "nodemon index.js",
       build: "tsc",
       test: "jest",
-    },
+    } as Record<string, string>,
   });
   const [deps, setDeps] = useState("express\ncors\ndotenv");
   const [devDeps, setDevDeps] = useState("typescript\n@types/node\nnodemon\njest");
