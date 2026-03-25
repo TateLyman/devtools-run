@@ -3,7 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 function pretty(s: string): string {
-  return s.split("-").map(w => w[0].toUpperCase() + w.slice(1)).join(" ");
+  if (!s) return "";
+  return s.split("-").filter(Boolean).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
 function doConvert(from: string, to: string, input: string, categories: any): string {

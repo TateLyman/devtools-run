@@ -46,15 +46,17 @@ function findConversion(slug: string): { from: string; to: string; category: str
 }
 
 function pretty(s: string): string {
-  return s.split("-").map(w => w[0].toUpperCase() + w.slice(1)).join(" ");
+  if (!s) return "";
+  return s.split("-").filter(Boolean).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
 
 export function generateStaticParams() {
   return getAllSlugs().map(slug => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const conv = findConversion(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const conv = findConversion(slug);
   if (!conv) return { title: "Converter" };
   const from = pretty(conv.from);
   const to = pretty(conv.to);
@@ -65,12 +67,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ConvertPage({ params }: { params: { slug: string } }) {
-  const conv = findConversion(params.slug);
+export default async function ConvertPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const conv = findConversion(slug);
   const allSlugs = getAllSlugs();
   if (!conv) return <div>Not found</div>;
   return <ConvertClient
-    from={conv.from} to={conv.to} category={conv.category} slug={params.slug}
+    from={conv.from} to={conv.to} category={conv.category} slug={slug}
     allSlugs={allSlugs} categories={CATEGORIES}
   />;
 }
