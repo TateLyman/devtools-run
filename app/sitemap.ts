@@ -25,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vanity-address", "create-token", "rpc-status",
     "webhooks", "gradient", "meta-tags", "favicon", "placeholder",
     "sol-usd", "bundle", "json-to-ts", "ip", "useragent",
+    "word-counter", "box-shadow", "tailwind-colors", "emoji", "regex-cheatsheet",
+    "regex-patterns", "http-status", "curl-builder", "md-editor", "contrast",
+    "meme", "screen-size", "json-validator", "hex-rgb", "launch-token",
+    "portfolio", "store", "resources", "merch", "deals", "submit-tool",
+    "alpha", "telegram", "changelog", "pricing", "hire", "jobs",
+    "seo-checklist", "pomodoro", "typing-test", "project-ideas", "stack-picker",
+    "privacy", "daily", "api-docs", "shortcuts", "ascii",
+    "startup-toolkit", "notion-templates", "animations",
+    "border-radius", "text-diff", "palette", "json-path", "responsive",
+    "github-readme", "case-converter", "gitignore", "npm-name",
+    "og-preview", "image-compress", "csv-viewer", "robots-generator",
+    "font-pairs", "calculator",
   ];
 
   const pages = ["services", "links", "hire", "advertise"];
