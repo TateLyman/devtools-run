@@ -36,7 +36,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "border-radius", "text-diff", "palette", "json-path", "responsive",
     "github-readme", "case-converter", "gitignore", "npm-name",
     "og-preview", "image-compress", "csv-viewer", "robots-generator",
-    "font-pairs", "calculator",
+    "font-pairs", "calculator", "token-research", "playground",
+    "tech-detector", "readme", "color-name", "notes", "todo", "whiteboard",
+    "base-converter", "jwt-create", "cron-monitor", "marketplace",
+    "speed-test", "tech-quiz", "blog", "about",
   ];
 
   const pages = ["services", "links", "hire", "advertise"];
