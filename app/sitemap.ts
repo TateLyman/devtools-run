@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "tx-history", "staking-calc", "sol-usd",
     "vanity-address", "create-token", "rpc-status",
     "webhooks", "gradient", "meta-tags", "favicon", "placeholder",
-    "sol-usd", "bundle",
+    "sol-usd", "bundle", "json-to-ts", "ip", "useragent",
   ];
 
   const pages = ["services", "links", "hire", "advertise"];
