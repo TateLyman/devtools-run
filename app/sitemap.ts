@@ -126,5 +126,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
+    // Converter pages (programmatic SEO — 40 pages)
+    ...["json-to-yaml","yaml-to-json","json-to-csv","csv-to-json","json-to-xml","xml-to-json",
+      "json-to-typescript","markdown-to-html","html-to-markdown","hex-to-rgb","rgb-to-hex","hex-to-hsl",
+      "celsius-to-fahrenheit","fahrenheit-to-celsius","px-to-rem","rem-to-px","px-to-em",
+      "base64-to-text","text-to-base64","url-encode","url-decode",
+      "binary-to-decimal","decimal-to-binary","hex-to-decimal","decimal-to-hex","octal-to-decimal",
+      "unix-to-date","date-to-unix","km-to-miles","miles-to-km","kg-to-lbs","lbs-to-kg",
+      "usd-to-sol","sol-to-usd","eth-to-usd","btc-to-usd",
+      "inches-to-cm","cm-to-inches","bytes-to-kb","mb-to-gb",
+    ].map((slug) => ({
+      url: `${base}/convert/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
   ];
 }
