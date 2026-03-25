@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "age-calculator", "percentage-calculator", "free-api",
     "unit-converter", "scientific-calculator",
     "random-number", "gpa-calculator",
-    "countdown", "world-clock", "text-to-image", "timezone-converter", "css-glassmorphism", "email-validator", "css-text-shadow", "json-to-csv", "html-minifier", "js-minifier", "daily-dev-quote", "extension",
+    "countdown", "world-clock", "text-to-image", "timezone-converter", "css-glassmorphism", "email-validator", "css-text-shadow", "json-to-csv", "html-minifier", "js-minifier", "daily-dev-quote", "extension", "font-size-converter", "html-to-markdown",
   ];
 
   const products = [
