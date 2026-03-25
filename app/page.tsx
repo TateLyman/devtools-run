@@ -236,12 +236,17 @@ export default function HomePage() {
       />
       <section className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-3 tracking-tight">
-          Free Online Developer Tools
+          265+ Free Developer Tools
         </h1>
         <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
-          Fast, private, and free. Every tool runs entirely in your browser
-          &mdash; nothing is sent to a server.
+          JSON formatter, regex tester, CSS generators, calculators, crypto tools, and 260 more.
+          All browser-based, all free, no signup.
         </p>
+        <div className="mt-4 flex gap-3 justify-center flex-wrap text-sm">
+          <a href="/extension" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold">Chrome Extension</a>
+          <a href="/free-api" className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Free APIs</a>
+          <a href="/price/sol-to-usd" className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Crypto Prices</a>
+        </div>
       </section>
 
       <div className="grid gap-4 sm:grid-cols-2">
