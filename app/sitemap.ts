@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "code-review", "ai-writer", "resume-builder", "invoice-generator",
     "link-shortener", "color-palette-generator", "readme-generator",
     "html-to-jsx", "svg-to-css", "css-grid-generator", "flexbox-generator",
+    "json-formatter", "text-to-speech", "speech-to-text", "image-to-base64",
+    "code-formatter", "pixel-art",
   ];
 
   const products = [
