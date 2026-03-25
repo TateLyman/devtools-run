@@ -218,7 +218,7 @@ export default function HomePage() {
             "@type": "WebApplication",
             "name": "DevTools.run",
             "url": "https://devtools-site-delta.vercel.app",
-            "description": "27 free browser-based developer tools and a Solana Scanner Telegram bot. JSON formatter, Base64 encoder, JWT decoder, Solana tools, and more.",
+            "description": "175+ free browser-based developer tools and a Solana Scanner Telegram bot. JSON formatter, Base64 encoder, JWT decoder, resume builder, AI writer, CSS tools, Solana tools, and more.",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Any",
             "offers": {
@@ -267,6 +267,46 @@ export default function HomePage() {
           </Link>
         ))}
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold mb-4">New Tools</h2>
+        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          {[
+            { href: "/ai-writer", name: "AI Writing Assistant", icon: "AI" },
+            { href: "/resume-builder", name: "Resume Builder", icon: "CV" },
+            { href: "/invoice-generator", name: "Invoice Generator", icon: "IN" },
+            { href: "/color-palette-generator", name: "Color Palette Generator", icon: "PA" },
+            { href: "/css-grid-generator", name: "CSS Grid Builder", icon: "GR" },
+            { href: "/flexbox-generator", name: "Flexbox Playground", icon: "FX" },
+            { href: "/css-animation-generator", name: "CSS Animations", icon: "AN" },
+            { href: "/html-to-jsx", name: "HTML to JSX", icon: "JX" },
+            { href: "/svg-to-css", name: "SVG to CSS", icon: "SV" },
+            { href: "/readme-generator", name: "README Generator", icon: "RM" },
+            { href: "/code-formatter", name: "Code Formatter", icon: "FT" },
+            { href: "/sql-formatter", name: "SQL Beautifier", icon: "SQ" },
+            { href: "/markdown-preview", name: "Markdown Editor", icon: "MD" },
+            { href: "/crontab", name: "Crontab Builder", icon: "CR" },
+            { href: "/text-to-speech", name: "Text to Speech", icon: "TS" },
+            { href: "/speech-to-text", name: "Speech to Text", icon: "ST" },
+            { href: "/image-to-base64", name: "Image to Base64", icon: "I6" },
+            { href: "/pixel-art", name: "Pixel Art Editor", icon: "PX" },
+            { href: "/text-compare", name: "Text Diff", icon: "DF" },
+            { href: "/link-shortener", name: "Link Shortener", icon: "LN" },
+            { href: "/json-formatter", name: "JSON Formatter", icon: "{}" },
+            { href: "/lorem-ipsum-generator", name: "Lorem Ipsum", icon: "Li" },
+            { href: "/hash-generator", name: "Hash Generator", icon: "#" },
+            { href: "/jwt-decoder", name: "JWT Decoder", icon: "JW" },
+            { href: "/base64-encoder", name: "Base64 Encoder", icon: "B6" },
+            { href: "/url-encoder", name: "URL Encoder", icon: "%" },
+            { href: "/password-generator", name: "Password Gen", icon: "PW" },
+          ].map((t) => (
+            <Link key={t.href} href={t.href} className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-3 hover:border-[var(--accent)] transition-colors">
+              <div className="w-9 h-9 rounded bg-[var(--bg-tertiary)] border border-[var(--border)] flex items-center justify-center text-xs font-mono font-bold text-[var(--accent)]">{t.icon}</div>
+              <span className="text-sm font-medium text-white">{t.name}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <div className="mt-8 rounded-xl border border-[var(--border)] bg-gradient-to-r from-[#0088cc]/10 to-[var(--bg-secondary)] p-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
