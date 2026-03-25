@@ -23,7 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "regex-tester", "uuid-generator", "timestamp-converter",
     "color-converter", "qr-code-generator",
     "mortgage-calculator", "bmi-calculator", "tip-calculator",
-    "compound-interest", "stopwatch",
+    "compound-interest", "stopwatch", "character-counter",
+    "age-calculator", "percentage-calculator",
   ];
 
   const products = [
