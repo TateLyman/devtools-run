@@ -54,7 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google AdSense auto-ads — only loads when NEXT_PUBLIC_ADSENSE_ID is set */}
+        {/* Google AdSense auto-ads */}
         {adsenseId && (
           <script
             async
@@ -62,6 +62,7 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
         )}
+        {/* Ad placeholder — will be replaced with real ad network ID after signup */}
       </head>
       <body className="min-h-screen flex flex-col">
         <header className="border-b border-[var(--border)] sticky top-0 z-50 bg-[var(--bg-primary)]/95 backdrop-blur-sm">
