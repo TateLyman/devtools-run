@@ -19,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sol-bot", "sol-bot-source", "sol-grid-bot", "sol-defi-toolkit",
     "sol-trading-guide", "prompt-pack", "white-label",
     "bot-builder", "api-access",
+    "sniper", "whale-tracker", "sol-pay", "templates",
+    "sol-balance", "sol-price", "airdrop-checker", "nft-checker",
+    "tx-history", "staking-calc", "sol-usd",
   ];
 
   const pages = ["services", "links", "hire", "advertise"];
