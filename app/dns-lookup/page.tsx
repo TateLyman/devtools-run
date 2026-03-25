@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function DNSLookup() {
   const [domain, setDomain] = useState("");
-  const [results, setResults] = useState<any>(null);
+  const [results, setResults] = useState<Record<string, any[]> | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
