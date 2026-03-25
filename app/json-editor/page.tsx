@@ -14,7 +14,7 @@ export default function JsonEditor() {
     if (!error) setError(e.message);
   }
 
-  const renderTree = (data: any, path: string = "", depth: number = 0): JSX.Element => {
+  const renderTree = (data: any, path: string = "", depth: number = 0): React.ReactNode => {
     const indent = depth * 16;
 
     if (data === null) return <span style={{ marginLeft: indent }} className="text-gray-500 font-mono text-sm">null</span>;
