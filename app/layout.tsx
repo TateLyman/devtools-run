@@ -62,7 +62,8 @@ export default function RootLayout({
             crossOrigin="anonymous"
           />
         )}
-        {/* Ad placeholder — will be replaced with real ad network ID after signup */}
+        {/* Adsterra Popunder — pays per impression on every page */}
+        <script async src="https://pl28973843.profitablecpmratenetwork.com/d0/82/a4/d082a4ee69896d426d16d2e5f1ffe149.js" />
       </head>
       <body className="min-h-screen flex flex-col">
         <header className="border-b border-[var(--border)] sticky top-0 z-50 bg-[var(--bg-primary)]/95 backdrop-blur-sm">
