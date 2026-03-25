@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "base64-encoder", "url-encoder", "password-generator",
     "regex-tester", "uuid-generator", "timestamp-converter",
     "color-converter", "qr-code-generator",
+    "mortgage-calculator", "bmi-calculator", "tip-calculator",
+    "compound-interest", "stopwatch",
   ];
 
   const products = [
