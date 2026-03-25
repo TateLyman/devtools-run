@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "age-calculator", "percentage-calculator", "free-api",
     "unit-converter", "scientific-calculator",
     "random-number", "gpa-calculator",
-    "countdown", "world-clock", "text-to-image", "timezone-converter", "css-glassmorphism", "email-validator", "css-text-shadow", "json-to-csv", "html-minifier", "js-minifier", "daily-dev-quote", "extension", "font-size-converter", "html-to-markdown", "yaml-validator", "xml-formatter", "stripe-fee", "salary-calculator", "markdown-to-html", "css-specificity", "paypal-fee", "css-clip-path", "loan-calculator", "date-calculator", "swap", "github-profile", "dns-lookup", "whois", "ssl-checker", "http-header-checker", "sitemap-generator", "htaccess-generator", "nginx-config", "docker-compose", "ip-lookup",
+    "countdown", "world-clock", "text-to-image", "timezone-converter", "css-glassmorphism", "email-validator", "css-text-shadow", "json-to-csv", "html-minifier", "js-minifier", "daily-dev-quote", "extension", "font-size-converter", "html-to-markdown", "yaml-validator", "xml-formatter", "stripe-fee", "salary-calculator", "markdown-to-html", "css-specificity", "paypal-fee", "css-clip-path", "loan-calculator", "date-calculator", "swap", "github-profile", "dns-lookup", "whois", "ssl-checker", "http-header-checker", "sitemap-generator", "htaccess-generator", "nginx-config", "docker-compose", "ip-lookup", "csp-generator",
   ];
 
   const products = [
