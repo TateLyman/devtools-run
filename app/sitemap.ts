@@ -23,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sol-balance", "sol-price", "airdrop-checker", "nft-checker",
     "tx-history", "staking-calc", "sol-usd",
     "vanity-address", "create-token", "rpc-status",
+    "webhooks", "gradient", "meta-tags", "favicon", "placeholder",
+    "sol-usd", "bundle",
   ];
 
   const pages = ["services", "links", "hire", "advertise"];
