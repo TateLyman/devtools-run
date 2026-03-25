@@ -131,7 +131,7 @@ export default function RootLayout({
         {/* Floating CTA bar — shows on every page */}
         <div className="fixed bottom-0 left-0 right-0 bg-[#1a1a2e]/95 backdrop-blur border-t border-purple-500/20 py-2 px-4 z-50">
           <div className="max-w-5xl mx-auto flex items-center justify-between gap-3 text-xs">
-            <span className="text-gray-400 hidden sm:inline">175+ free dev tools</span>
+            <span className="text-gray-400 hidden sm:inline">200+ free dev tools</span>
             <div className="flex items-center gap-2 mx-auto sm:mx-0">
               <a href="/sol-bot" className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded font-bold">Trading Bot</a>
               <a href="/store" className="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded font-bold">Digital Store</a>
