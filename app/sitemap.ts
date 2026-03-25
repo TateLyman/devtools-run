@@ -12,7 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sol-calc", "sol-scan", "sol-token", "sol-wallet",
     "sol-staking", "sol-converter", "gas-tracker",
     "html-encode", "css-minify", "number-base", "text-count", "epoch",
-    "code-review",
+    "code-review", "ai-writer", "resume-builder", "invoice-generator",
+    "link-shortener", "color-palette-generator", "readme-generator",
+    "html-to-jsx", "svg-to-css", "css-grid-generator", "flexbox-generator",
   ];
 
   const products = [
