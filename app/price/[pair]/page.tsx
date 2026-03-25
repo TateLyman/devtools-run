@@ -55,9 +55,8 @@ function parsePair(pair: string): { from: string; to: string } | null {
   return null;
 }
 
-export function generateStaticParams() {
-  return getAllPairs().map((pair) => ({ pair }));
-}
+// Dynamic rendering — too many pairs for static build on hobby plan
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }: { params: Promise<{ pair: string }> }): Promise<Metadata> {
   const { pair } = await params;
