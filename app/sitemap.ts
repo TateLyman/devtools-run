@@ -171,5 +171,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
+    // Crypto & fiat price conversion pages (programmatic SEO — 900+ pages)
+    ...(() => {
+      const tokens = ["sol","btc","eth","usdc","usdt","bnb","xrp","ada","doge","dot","avax","matic","link","uni","atom","near","apt","sui","arb","op","jup","bonk","wif","pepe","shib","usd","eur","gbp","jpy","aud","cad","inr"];
+      const pairs: string[] = [];
+      for (const from of tokens) {
+        for (const to of tokens) {
+          if (from !== to) pairs.push(`${from}-to-${to}`);
+        }
+      }
+      return pairs;
+    })().map((pair) => ({
+      url: `${base}/price/${pair}`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.6,
+    })),
   ];
 }
