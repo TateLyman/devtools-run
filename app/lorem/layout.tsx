@@ -1,25 +1,7 @@
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
-  title: "Lorem Ipsum Generator - Generate Placeholder Text Online",
-  description:
-    "Free online Lorem Ipsum generator. Generate placeholder paragraphs, sentences, or words for your designs and mockups. No signup required.",
-  keywords: [
-    "Lorem Ipsum generator",
-    "placeholder text",
-    "dummy text generator",
-    "Lorem Ipsum online",
-    "generate Lorem Ipsum",
-  ],
-  alternates: {
-    canonical: "https://devtools-site-delta.vercel.app/lorem",
-  },
+  title: "Lorem Ipsum Generator - Generate Placeholder Text Free",
+  description: "Generate Lorem Ipsum placeholder text. Paragraphs, sentences, or words. Multiple styles. Copy with one click. Free Lorem Ipsum generator.",
+  keywords: ["lorem ipsum generator", "placeholder text", "dummy text", "lorem ipsum", "filler text generator", "text placeholder"],
 };
-
-export default function LoremLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <>{children}</>;
-}
+export default function Layout({ children }: { children: React.ReactNode }) { return children; }

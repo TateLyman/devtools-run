@@ -1,199 +1,79 @@
 "use client";
+import { useState } from "react";
 
-import { useState, useCallback } from "react";
+const LOREM = "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt".split(" ");
 
-import AdSlot from "../components/AdSlot";
-
-const LOREM_WORDS = [
-  "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
-  "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore",
-  "magna", "aliqua", "enim", "ad", "minim", "veniam", "quis", "nostrud",
-  "exercitation", "ullamco", "laboris", "nisi", "aliquip", "ex", "ea", "commodo",
-  "consequat", "duis", "aute", "irure", "in", "reprehenderit", "voluptate",
-  "velit", "esse", "cillum", "fugiat", "nulla", "pariatur", "excepteur", "sint",
-  "occaecat", "cupidatat", "non", "proident", "sunt", "culpa", "qui", "officia",
-  "deserunt", "mollit", "anim", "id", "est", "laborum", "at", "vero", "eos",
-  "accusamus", "iusto", "odio", "dignissimos", "ducimus", "blanditiis",
-  "praesentium", "voluptatum", "deleniti", "atque", "corrupti", "quos",
-  "dolores", "quas", "molestias", "recusandae", "itaque", "earum", "rerum",
-  "hic", "tenetur", "sapiente", "delectus", "aut", "reiciendis", "voluptatibus",
-  "maiores", "alias", "perferendis", "doloribus", "asperiores", "repellat",
-  "temporibus", "quibusdam", "officiis", "debitis", "necessitatibus", "saepe",
-  "eveniet", "voluptates", "repudiandae", "recusandae", "numquam", "eius",
-  "modi", "tempora", "quaerat", "voluptatem", "quia", "consequuntur", "magni",
-  "minima", "nostrum", "exercitationem", "ullam", "corporis", "suscipit",
-  "laboriosam", "perspiciatis", "unde", "omnis", "iste", "natus", "error",
-  "similique", "fugit", "harum", "quidem", "rerum", "facilis", "expedita",
-  "distinctio", "nam", "libero", "tempore", "cum", "soluta", "nobis", "eligendi",
-  "optio", "cumque", "nihil", "impedit", "quo", "minus", "placeat", "facere",
-  "possimus", "assumenda", "repellendus",
-];
-
-const FIRST_SENTENCE =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-type UnitType = "paragraphs" | "sentences" | "words";
-
-function randomWord(): string {
-  return LOREM_WORDS[Math.floor(Math.random() * LOREM_WORDS.length)];
-}
-
-function generateSentence(wordCount?: number): string {
-  const count = wordCount ?? (8 + Math.floor(Math.random() * 12));
+function generateWords(count: number): string {
   const words: string[] = [];
-  for (let i = 0; i < count; i++) {
-    words.push(randomWord());
-  }
-  words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
-  return words.join(" ") + ".";
+  for (let i = 0; i < count; i++) words.push(LOREM[i % LOREM.length]);
+  return words.join(" ");
 }
 
-function generateParagraph(): string {
-  const sentenceCount = 4 + Math.floor(Math.random() * 4);
+function generateSentences(count: number): string {
   const sentences: string[] = [];
-  for (let i = 0; i < sentenceCount; i++) {
-    sentences.push(generateSentence());
+  for (let i = 0; i < count; i++) {
+    const len = 8 + Math.floor(Math.random() * 12);
+    const start = (i * 7) % LOREM.length;
+    const words = Array.from({ length: len }, (_, j) => LOREM[(start + j) % LOREM.length]);
+    words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+    sentences.push(words.join(" ") + ".");
   }
   return sentences.join(" ");
 }
 
-export default function LoremIpsumPage() {
+function generateParagraphs(count: number): string {
+  return Array.from({ length: count }, (_, i) => generateSentences(4 + Math.floor(Math.random() * 4))).join("\n\n");
+}
+
+export default function LoremGenerator() {
+  const [type, setType] = useState<"paragraphs"|"sentences"|"words">("paragraphs");
   const [count, setCount] = useState(3);
-  const [unit, setUnit] = useState<UnitType>("paragraphs");
+  const [text, setText] = useState(() => generateParagraphs(3));
   const [startWithLorem, setStartWithLorem] = useState(true);
-  const [output, setOutput] = useState("");
 
-  const generate = useCallback(() => {
-    let result = "";
+  const generate = () => {
+    let result = type === "paragraphs" ? generateParagraphs(count) : type === "sentences" ? generateSentences(count) : generateWords(count);
+    if (startWithLorem && !result.startsWith("Lorem")) result = "Lorem ipsum dolor sit amet. " + result;
+    setText(result);
+  };
 
-    if (unit === "paragraphs") {
-      const paragraphs: string[] = [];
-      for (let i = 0; i < count; i++) {
-        if (i === 0 && startWithLorem) {
-          const extra = generateParagraph();
-          paragraphs.push(FIRST_SENTENCE + " " + extra);
-        } else {
-          paragraphs.push(generateParagraph());
-        }
-      }
-      result = paragraphs.join("\n\n");
-    } else if (unit === "sentences") {
-      const sentences: string[] = [];
-      for (let i = 0; i < count; i++) {
-        if (i === 0 && startWithLorem) {
-          sentences.push(FIRST_SENTENCE);
-        } else {
-          sentences.push(generateSentence());
-        }
-      }
-      result = sentences.join(" ");
-    } else {
-      const words: string[] = [];
-      if (startWithLorem) {
-        const loremWords = FIRST_SENTENCE.replace(".", "").split(" ");
-        for (let i = 0; i < Math.min(count, loremWords.length); i++) {
-          words.push(loremWords[i]);
-        }
-        for (let i = loremWords.length; i < count; i++) {
-          words.push(randomWord());
-        }
-      } else {
-        for (let i = 0; i < count; i++) {
-          words.push(randomWord());
-        }
-      }
-      result = words.join(" ") + ".";
-    }
-
-    setOutput(result);
-  }, [count, unit, startWithLorem]);
-
-  function copyOutput() {
-    navigator.clipboard.writeText(output);
-  }
+  const copy = () => navigator.clipboard.writeText(text);
+  const words = text.trim().split(/\s+/).length;
 
   return (
-    <>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-1">Lorem Ipsum Generator</h1>
-        <p className="text-[var(--text-secondary)] text-sm">
-          Generate placeholder text for your designs and mockups. Runs entirely
-          in your browser.
-        </p>
-      </div>
+    <div className="space-y-6">
+      <section className="text-center">
+        <h1 className="text-4xl font-bold mb-2">Lorem Ipsum Generator</h1>
+        <p className="text-[var(--text-secondary)]">Generate placeholder text for your designs</p>
+      </section>
 
-      <div className="space-y-4">
-        <div className="flex flex-wrap items-end gap-4">
+      <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-6">
+        <div className="flex flex-wrap gap-4 items-end">
           <div>
-            <label className="block text-sm font-medium mb-2">Count</label>
-            <input
-              type="number"
-              min={1}
-              max={100}
-              value={count}
-              onChange={(e) =>
-                setCount(Math.max(1, Math.min(100, Number(e.target.value))))
-              }
-              className="w-24"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-2">Unit</label>
-            <select
-              value={unit}
-              onChange={(e) => setUnit(e.target.value as UnitType)}
-              className="w-40"
-            >
+            <label className="text-sm text-[var(--text-secondary)] block mb-1">Type</label>
+            <select value={type} onChange={e => setType(e.target.value as typeof type)} className="bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg px-3 py-2">
               <option value="paragraphs">Paragraphs</option>
               <option value="sentences">Sentences</option>
               <option value="words">Words</option>
             </select>
           </div>
-          <label className="flex items-center gap-2 text-sm cursor-pointer pb-2">
-            <input
-              type="checkbox"
-              checked={startWithLorem}
-              onChange={(e) => setStartWithLorem(e.target.checked)}
-              className="w-4 h-4 accent-[var(--accent)]"
-            />
-            Start with &ldquo;Lorem ipsum...&rdquo;
-          </label>
-          <button
-            onClick={generate}
-            className="px-4 py-2 rounded-lg bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white text-sm font-medium transition-colors"
-          >
-            Generate
-          </button>
-        </div>
-
-        <div>
-          <div className="flex items-center justify-between mb-2">
-            <label className="block text-sm font-medium">Output</label>
-            {output && (
-              <button
-                onClick={copyOutput}
-                className="text-xs text-[var(--accent)] hover:underline"
-              >
-                Copy
-              </button>
-            )}
+          <div>
+            <label className="text-sm text-[var(--text-secondary)] block mb-1">Count</label>
+            <input type="number" value={count} onChange={e => setCount(Math.max(1, Number(e.target.value)))} min={1} max={100}
+              className="w-20 bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg px-3 py-2" />
           </div>
-          <pre className="min-h-[240px] whitespace-pre-wrap">{output}</pre>
+          <label className="text-sm"><input type="checkbox" checked={startWithLorem} onChange={e => setStartWithLorem(e.target.checked)} className="mr-1" />Start with "Lorem ipsum"</label>
+          <button onClick={generate} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-bold">Generate</button>
         </div>
       </div>
 
-      <AdSlot className="mt-8" />
-
-      <section className="mt-10 text-sm text-[var(--text-secondary)] space-y-2">
-        <h2 className="text-lg font-semibold text-white">
-          About Lorem Ipsum
-        </h2>
-        <p>
-          Lorem Ipsum is placeholder text commonly used in the printing and
-          design industry. This generator creates random Latin-style text in
-          paragraphs, sentences, or word counts for use in mockups and layouts.
-        </p>
-      </section>
-    </>
+      <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-4">
+        <div className="flex justify-between mb-2">
+          <span className="text-xs text-[var(--text-secondary)]">{words} words</span>
+          <button onClick={copy} className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-bold">Copy</button>
+        </div>
+        <div className="text-sm text-[var(--text-secondary)] whitespace-pre-wrap max-h-96 overflow-y-auto">{text}</div>
+      </div>
+    </div>
   );
 }
