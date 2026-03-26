@@ -1,36 +1,92 @@
 "use client";
 import { useState } from "react";
 
-export default function CSVViewerPage() {
-  const [csv, setCsv] = useState("name,age,city\nAlice,30,NYC\nBob,25,LA\nCharlie,35,Chicago");
-  const rows = csv.split("\n").map(r => r.split(","));
+function parseCSV(csv: string): string[][] {
+  const rows: string[][] = [];
+  let current = "";
+  let inQuotes = false;
+  let row: string[] = [];
+  for (let i = 0; i < csv.length; i++) {
+    const c = csv[i];
+    if (c === '"') { inQuotes = !inQuotes; }
+    else if (c === "," && !inQuotes) { row.push(current.trim()); current = ""; }
+    else if ((c === "\n" || c === "\r") && !inQuotes) { if (current || row.length) { row.push(current.trim()); rows.push(row); row = []; current = ""; } }
+    else { current += c; }
+  }
+  if (current || row.length) { row.push(current.trim()); rows.push(row); }
+  return rows;
+}
+
+const SAMPLE = `Name,Age,City,Email
+Alice Johnson,30,New York,alice@example.com
+Bob Smith,25,Los Angeles,bob@example.com
+Charlie Brown,35,Chicago,charlie@example.com
+Diana Ross,28,Houston,diana@example.com
+Eve Williams,42,Phoenix,eve@example.com`;
+
+export default function CSVViewer() {
+  const [csv, setCSV] = useState(SAMPLE);
+  const [sortCol, setSortCol] = useState(-1);
+  const [sortDir, setSortDir] = useState<"asc"|"desc">("asc");
+
+  const rows = parseCSV(csv);
   const headers = rows[0] || [];
-  const data = rows.slice(1);
+  let data = rows.slice(1);
+
+  if (sortCol >= 0) {
+    data.sort((a, b) => {
+      const va = a[sortCol] || "", vb = b[sortCol] || "";
+      const na = parseFloat(va), nb = parseFloat(vb);
+      const cmp = !isNaN(na) && !isNaN(nb) ? na - nb : va.localeCompare(vb);
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+  }
+
+  const handleSort = (col: number) => {
+    if (sortCol === col) setSortDir(sortDir === "asc" ? "desc" : "asc");
+    else { setSortCol(col); setSortDir("asc"); }
+  };
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) { const r = new FileReader(); r.onload = () => setCSV(r.result as string); r.readAsText(file); }
+  };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-4xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-extrabold mb-2 text-center">CSV Viewer</h1>
-        <p className="text-gray-400 text-center mb-8">Paste CSV data to view as a table. Edit inline.</p>
-        <textarea value={csv} onChange={e=>setCsv(e.target.value)} className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-green-400 font-mono text-sm h-32 resize-none mb-6" />
-        {headers.length > 0 && (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead><tr className="border-b border-gray-700">{headers.map((h,i)=><th key={i} className="text-left py-2 px-3 text-purple-400">{h}</th>)}</tr></thead>
-              <tbody>{data.map((row,i)=><tr key={i} className="border-b border-gray-800 hover:bg-gray-900">{row.map((cell,j)=><td key={j} className="py-2 px-3">{cell}</td>)}</tr>)}</tbody>
-            </table>
-          </div>
-        )}
-        <div className="mt-4 text-center">
-          <button onClick={()=>{const j=data.map(r=>{const o:any={};headers.forEach((h,i)=>o[h]=r[i]);return o;});navigator.clipboard.writeText(JSON.stringify(j,null,2));}} className="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-sm font-bold">Copy as JSON</button>
+    <div className="space-y-6">
+      <section className="text-center"><h1 className="text-4xl font-bold mb-2">CSV Viewer</h1><p className="text-[var(--text-secondary)]">View and sort CSV data as a table</p></section>
+
+      <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-4">
+        <div className="flex gap-2 mb-2">
+          <input type="file" accept=".csv" onChange={handleFile} className="text-sm" />
+          <button onClick={() => setCSV(SAMPLE)} className="text-xs text-blue-400">Load Sample</button>
         </div>
-        <div className="mt-8 text-center text-gray-500 text-sm">
-          <a href="/json" className="text-purple-400 hover:underline">JSON</a>{" | "}
-          <a href="/convert/json-to-csv" className="text-purple-400 hover:underline">JSON→CSV</a>{" | "}
-          <a href="/convert/csv-to-json" className="text-purple-400 hover:underline">CSV→JSON</a>{" | "}
-          <a href="/" className="text-purple-400 hover:underline">All Tools</a>
-        </div>
+        <textarea value={csv} onChange={e => setCSV(e.target.value)} rows={4}
+          className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg p-3 font-mono text-xs resize-none" placeholder="Paste CSV data here..." />
       </div>
+
+      <div className="text-xs text-[var(--text-secondary)] text-center">{data.length} rows, {headers.length} columns</div>
+
+      {headers.length > 0 && (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr>{headers.map((h, i) => (
+                <th key={i} onClick={() => handleSort(i)} className="bg-[var(--bg-secondary)] border border-[var(--border)] px-3 py-2 text-left cursor-pointer hover:bg-[var(--bg-primary)]">
+                  {h} {sortCol === i && (sortDir === "asc" ? "↑" : "↓")}
+                </th>
+              ))}</tr>
+            </thead>
+            <tbody>
+              {data.map((row, r) => (
+                <tr key={r} className="hover:bg-[var(--bg-secondary)]">
+                  {row.map((cell, c) => <td key={c} className="border border-[var(--border)] px-3 py-1.5">{cell}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
