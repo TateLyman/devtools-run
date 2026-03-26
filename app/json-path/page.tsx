@@ -1,50 +1,104 @@
 "use client";
 import { useState } from "react";
 
-function getPaths(obj: any, prefix = ""): string[] {
-  const paths: string[] = [];
-  if (typeof obj === "object" && obj !== null) {
-    for (const [k, v] of Object.entries(obj)) {
-      const path = prefix ? `${prefix}.${k}` : k;
-      paths.push(path);
-      if (typeof v === "object" && v !== null) paths.push(...getPaths(v, path));
-    }
+function renderTree(obj: unknown, path: string, onClick: (p: string, v: string) => void, depth: number = 0): React.ReactNode {
+  if (obj === null) return <span className="text-gray-500 cursor-pointer hover:bg-blue-900/20 px-1 rounded" onClick={() => onClick(path, "null")}>null</span>;
+  if (typeof obj === "boolean") return <span className="text-yellow-400 cursor-pointer hover:bg-blue-900/20 px-1 rounded" onClick={() => onClick(path, String(obj))}>{String(obj)}</span>;
+  if (typeof obj === "number") return <span className="text-emerald-400 cursor-pointer hover:bg-blue-900/20 px-1 rounded" onClick={() => onClick(path, String(obj))}>{obj}</span>;
+  if (typeof obj === "string") return <span className="text-orange-400 cursor-pointer hover:bg-blue-900/20 px-1 rounded" onClick={() => onClick(path, obj)}>"{obj}"</span>;
+  if (Array.isArray(obj)) {
+    return (
+      <div style={{ marginLeft: depth > 0 ? 16 : 0 }}>
+        <span className="text-gray-500">[</span>
+        {obj.map((item, i) => (
+          <div key={i} style={{ marginLeft: 16 }}>
+            <span className="text-gray-600 text-xs mr-1">{i}:</span>
+            {renderTree(item, `${path}[${i}]`, onClick, depth + 1)}
+            {i < obj.length - 1 && <span className="text-gray-500">,</span>}
+          </div>
+        ))}
+        <span className="text-gray-500">]</span>
+      </div>
+    );
   }
-  return paths;
+  if (typeof obj === "object") {
+    const entries = Object.entries(obj as Record<string, unknown>);
+    return (
+      <div style={{ marginLeft: depth > 0 ? 16 : 0 }}>
+        <span className="text-gray-500">{"{"}</span>
+        {entries.map(([key, val], i) => (
+          <div key={key} style={{ marginLeft: 16 }}>
+            <span className="text-blue-400 cursor-pointer hover:bg-blue-900/20 px-1 rounded" onClick={() => onClick(`${path}.${key}`, JSON.stringify(val))}>"{key}"</span>
+            <span className="text-gray-500">: </span>
+            {renderTree(val, `${path}.${key}`, onClick, depth + 1)}
+            {i < entries.length - 1 && <span className="text-gray-500">,</span>}
+          </div>
+        ))}
+        <span className="text-gray-500">{"}"}</span>
+      </div>
+    );
+  }
+  return null;
 }
 
-export default function JsonPathPage() {
-  const [input, setInput] = useState('{\n  "user": {\n    "name": "Sol",\n    "settings": {\n      "theme": "dark",\n      "notifications": true\n    },\n    "tags": ["dev", "crypto"]\n  }\n}');
-  const [paths, setPaths] = useState<string[]>([]);
-
-  function analyze() {
-    try {
-      const obj = JSON.parse(input);
-      setPaths(getPaths(obj));
-    } catch { setPaths(["Invalid JSON"]); }
+const SAMPLE = `{
+  "user": {
+    "name": "John Doe",
+    "age": 30,
+    "email": "john@example.com",
+    "address": {
+      "street": "123 Main St",
+      "city": "NYC",
+      "zip": "10001"
+    },
+    "hobbies": ["coding", "gaming", "reading"],
+    "active": true
   }
+}`;
+
+export default function JsonPath() {
+  const [input, setInput] = useState(SAMPLE);
+  const [selectedPath, setSelectedPath] = useState("");
+  const [selectedValue, setSelectedValue] = useState("");
+  const [error, setError] = useState("");
+
+  let parsed: unknown = null;
+  try { parsed = JSON.parse(input); setError && error && setError(""); } catch (e) { if (!error) setError((e as Error).message); }
+
+  const handleClick = (path: string, value: string) => {
+    const cleanPath = path.startsWith("$.") ? path : "$" + path;
+    setSelectedPath(cleanPath);
+    setSelectedValue(value);
+    navigator.clipboard.writeText(cleanPath);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-3xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-extrabold mb-2 text-center">JSON Path Finder</h1>
-        <p className="text-gray-400 text-center mb-8">Paste JSON to see all paths. Click any path to copy.</p>
-        <textarea value={input} onChange={e=>setInput(e.target.value)}
-          className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-green-400 font-mono text-sm h-40 resize-none mb-4" />
-        <button onClick={analyze} className="w-full bg-purple-600 hover:bg-purple-700 py-3 rounded-xl font-bold mb-4">Find Paths</button>
-        {paths.length > 0 && (
-          <div className="bg-gray-900 rounded-xl p-4">
-            <div className="text-xs text-gray-400 mb-2">{paths.length} paths found</div>
-            {paths.map((p,i) => (
-              <div key={i} className="font-mono text-sm text-purple-400 py-1 px-2 hover:bg-gray-800 rounded cursor-pointer" onClick={()=>navigator.clipboard.writeText(p)}>{p}</div>
-            ))}
+    <div className="space-y-6">
+      <section className="text-center">
+        <h1 className="text-4xl font-bold mb-2">JSON Path Finder</h1>
+        <p className="text-[var(--text-secondary)]">Click any value to copy its JSONPath</p>
+      </section>
+
+      {selectedPath && (
+        <div className="bg-blue-900/20 border border-blue-500/20 rounded-xl p-3 text-center">
+          <div className="text-xs text-[var(--text-secondary)]">Copied path:</div>
+          <code className="text-blue-400 font-mono">{selectedPath}</code>
+          <div className="text-xs text-[var(--text-secondary)] mt-1">Value: {selectedValue.slice(0, 100)}</div>
+        </div>
+      )}
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-4">
+          <label className="text-sm font-bold block mb-2">JSON Input</label>
+          <textarea value={input} onChange={e => { setInput(e.target.value); setError(""); }} rows={16}
+            className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg p-3 font-mono text-sm resize-none" />
+          {error && <div className="text-red-400 text-xs mt-1">{error}</div>}
+        </div>
+        <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-4 overflow-auto" style={{ maxHeight: "500px" }}>
+          <label className="text-sm font-bold block mb-2">Tree (click to copy path)</label>
+          <div className="font-mono text-sm">
+            {parsed !== null && renderTree(parsed, "$", handleClick)}
           </div>
-        )}
-        <div className="mt-8 text-center text-gray-500 text-sm">
-          <a href="/json" className="text-purple-400 hover:underline">JSON Formatter</a>{" | "}
-          <a href="/json-validator" className="text-purple-400 hover:underline">Validator</a>{" | "}
-          <a href="/json-to-ts" className="text-purple-400 hover:underline">JSON to TS</a>{" | "}
-          <a href="/" className="text-purple-400 hover:underline">All Tools</a>
         </div>
       </div>
     </div>
