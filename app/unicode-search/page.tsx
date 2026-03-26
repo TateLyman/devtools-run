@@ -26,8 +26,6 @@ const CHARS: [string, string, string][] = [
   ["┬","TopT","box"],["┴","BotT","box"],["┼","Cross","box"],["║","DblVert","box"],
   ["═","DblHoriz","box"],["╔","DblTL","box"],["╗","DblTR","box"],["╚","DblBL","box"],["╝","DblBR","box"],
   ["…","Ellipsis","punctuation"],["—","Em Dash","punctuation"],["–","En Dash","punctuation"],
-  [""","Left Quote","punctuation"],[""","Right Quote","punctuation"],["'","Left Single","punctuation"],
-  ["'","Right Single","punctuation"],["«","Left Guillemet","punctuation"],["»","Right Guillemet","punctuation"],
   ["•","Bullet","punctuation"],["·","Middle Dot","punctuation"],
 ];
 
