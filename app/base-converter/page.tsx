@@ -1,36 +1,42 @@
 "use client";
 import { useState } from "react";
 
-export default function BaseConverterPage() {
+export default function BaseConverter() {
   const [input, setInput] = useState("255");
-  const [base, setBase] = useState(10);
-  const dec = parseInt(input, base) || 0;
+  const [fromBase, setFromBase] = useState(10);
+  const [toBase, setToBase] = useState(16);
+
+  let result = "";
+  let error = "";
+  try {
+    const decimal = parseInt(input, fromBase);
+    if (isNaN(decimal)) throw new Error("Invalid");
+    result = decimal.toString(toBase).toUpperCase();
+  } catch { error = "Invalid input for base " + fromBase; }
+
+  const copy = () => navigator.clipboard.writeText(result);
+  const presets = [2, 8, 10, 16, 32, 36];
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white">
-      <div className="max-w-3xl mx-auto px-4 py-16">
-        <h1 className="text-4xl font-extrabold mb-2 text-center">Number Base Converter</h1>
-        <p className="text-gray-400 text-center mb-8">Convert between binary, octal, decimal, and hexadecimal.</p>
-        <div className="bg-gray-900 rounded-xl p-6 mb-6">
-          <div className="flex gap-2 mb-4">
-            {[{n:"Binary",b:2},{n:"Octal",b:8},{n:"Decimal",b:10},{n:"Hex",b:16}].map(({n,b})=>(
-              <button key={b} onClick={()=>{setBase(b);setInput(dec.toString(b));}} className={`flex-1 py-2 rounded-lg text-sm font-bold ${base===b?"bg-purple-600":"bg-gray-800 hover:bg-gray-700"}`}>{n}</button>
-            ))}
-          </div>
-          <input type="text" value={input} onChange={e=>setInput(e.target.value)} className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white font-mono text-xl text-center mb-4" />
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-gray-800 rounded-lg p-3"><div className="text-xs text-gray-400">Binary (base 2)</div><div className="font-mono text-green-400 break-all">{dec.toString(2)}</div></div>
-            <div className="bg-gray-800 rounded-lg p-3"><div className="text-xs text-gray-400">Octal (base 8)</div><div className="font-mono text-blue-400">{dec.toString(8)}</div></div>
-            <div className="bg-gray-800 rounded-lg p-3"><div className="text-xs text-gray-400">Decimal (base 10)</div><div className="font-mono text-purple-400">{dec}</div></div>
-            <div className="bg-gray-800 rounded-lg p-3"><div className="text-xs text-gray-400">Hexadecimal (base 16)</div><div className="font-mono text-yellow-400">{dec.toString(16).toUpperCase()}</div></div>
-          </div>
+    <div className="space-y-6">
+      <section className="text-center"><h1 className="text-4xl font-bold mb-2">Base Converter</h1><p className="text-[var(--text-secondary)]">Convert between any number base (2-36)</p></section>
+      <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-6">
+        <div className="grid gap-4 md:grid-cols-3">
+          <div><label className="text-sm text-[var(--text-secondary)]">Input</label><input value={input} onChange={e => setInput(e.target.value)} className="w-full bg-[var(--bg-primary)] border border-[var(--border)] rounded-lg px-3 py-2 font-mono text-lg" /></div>
+          <div><label className="text-sm text-[var(--text-secondary)]">From Base</label><div className="flex gap-1 flex-wrap">{presets.map(b => <button key={b} onClick={() => setFromBase(b)} className={`px-2 py-1 rounded text-xs ${fromBase === b ? "bg-blue-600 text-white" : "bg-[var(--bg-primary)] border border-[var(--border)]"}`}>{b}</button>)}<input type="number" min={2} max={36} value={fromBase} onChange={e => setFromBase(Number(e.target.value))} className="w-14 bg-[var(--bg-primary)] border border-[var(--border)] rounded px-2 py-1 text-sm" /></div></div>
+          <div><label className="text-sm text-[var(--text-secondary)]">To Base</label><div className="flex gap-1 flex-wrap">{presets.map(b => <button key={b} onClick={() => setToBase(b)} className={`px-2 py-1 rounded text-xs ${toBase === b ? "bg-blue-600 text-white" : "bg-[var(--bg-primary)] border border-[var(--border)]"}`}>{b}</button>)}<input type="number" min={2} max={36} value={toBase} onChange={e => setToBase(Number(e.target.value))} className="w-14 bg-[var(--bg-primary)] border border-[var(--border)] rounded px-2 py-1 text-sm" /></div></div>
         </div>
-        <div className="text-center text-gray-500 text-sm">
-          <a href="/number-base" className="text-purple-400 hover:underline">Number Base Tool</a>{" | "}
-          <a href="/calculator" className="text-purple-400 hover:underline">Calculator</a>{" | "}
-          <a href="/convert/binary-to-decimal" className="text-purple-400 hover:underline">Binary/Decimal</a>{" | "}
-          <a href="/" className="text-purple-400 hover:underline">All Tools</a>
+      </div>
+      {error ? <div className="text-red-400 text-center">{error}</div> : (
+        <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-500/20 rounded-xl p-6 text-center cursor-pointer" onClick={copy}>
+          <div className="text-xs text-[var(--text-secondary)]">Base {fromBase} → Base {toBase}</div>
+          <div className="text-4xl font-bold text-blue-400 font-mono my-2">{result}</div>
+          <div className="text-xs text-[var(--text-secondary)]">Click to copy</div>
         </div>
+      )}
+      <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl p-4 text-sm">
+        <h2 className="font-bold mb-2">All Bases</h2>
+        <div className="grid gap-1 md:grid-cols-2">{[2,8,10,16].map(b => { try { const d = parseInt(input, fromBase); const r = d.toString(b).toUpperCase(); return <div key={b} className="flex justify-between bg-[var(--bg-primary)] rounded px-3 py-1"><span>Base {b}</span><code className="font-mono">{r}</code></div>; } catch { return null; } })}</div>
       </div>
     </div>
   );
