@@ -17,7 +17,7 @@ export default function RegexViz() {
 
   const highlighted = () => {
     if (matches.length === 0) return <span>{text}</span>;
-    const parts: JSX.Element[] = [];
+    const parts: React.ReactNode[] = [];
     let last = 0;
     matches.forEach((m, i) => {
       if (m.start > last) parts.push(<span key={`t${i}`}>{text.slice(last, m.start)}</span>);
