@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Color Picker - HEX, RGB, HSL Color Picker Online Free",
-  description: "Pick any color and get HEX, RGB, HSL, RGBA, CSS, and Tailwind values. Generate shades. Click to copy. Free online color picker tool.",
-  keywords: ["color picker", "hex color picker", "RGB color picker", "online color picker", "color selector", "pick color from screen"],
+  title: "Image Color Picker — Extract Colors from Any Image",
+  description: "Upload any image and click to extract colors. Get HEX, RGB, HSL values instantly. Zoom magnifier, color history, shades, and color harmonies. Free online tool.",
+  keywords: ["image color picker", "extract color from image", "color picker online", "pick color from image", "hex from image", "eyedropper tool"],
 };
 export default function Layout({ children }: { children: React.ReactNode }) { return children; }
