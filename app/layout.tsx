@@ -94,6 +94,7 @@ export default function RootLayout({
               <Link href="/hash" className="hover:text-white transition-colors">Hash</Link>
               <Link href="/regex" className="hover:text-white transition-colors">Regex</Link>
               <Link href="/color" className="hover:text-white transition-colors">Color</Link>
+              <Link href="/pro" className="text-yellow-400 hover:text-yellow-300 transition-colors font-bold">Pro</Link>
               <Link href="/hire" className="text-emerald-400 hover:text-emerald-300 transition-colors font-medium">Hire Me</Link>
             </nav>
           </div>

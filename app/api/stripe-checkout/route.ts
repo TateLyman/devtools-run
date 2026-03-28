@@ -62,6 +62,11 @@ const PRODUCTS: Record<string, ProductConfig> = {
     priceUsd: 99,
     mode: "payment",
   },
+  "tools-pro": {
+    name: "DevTools Pro (Monthly)",
+    priceUsd: 4.99,
+    mode: "subscription",
+  },
 };
 
 export async function GET(req: NextRequest) {
