@@ -3,6 +3,62 @@ import TipButton from "./components/TipButton";
 
 const tools = [
   {
+    href: "/image-compress",
+    name: "Image Compressor",
+    description:
+      "Compress PNG, JPEG, and WebP images up to 90% smaller. Runs in your browser — files never leave your device.",
+    icon: "IMG",
+  },
+  {
+    href: "/pdf-merge",
+    name: "Merge PDF Files",
+    description:
+      "Combine multiple PDF files into one. Drag to reorder. Free, private, no upload to any server.",
+    icon: "PDF",
+  },
+  {
+    href: "/background-remover",
+    name: "Background Remover",
+    description:
+      "Remove backgrounds from images with magic wand and eraser tools. Download transparent PNG.",
+    icon: "BG",
+  },
+  {
+    href: "/qr-code-generator",
+    name: "QR Code Generator",
+    description:
+      "Generate QR codes for URLs, text, WiFi, and more. Download as PNG. Free, instant.",
+    icon: "QR",
+  },
+  {
+    href: "/image-resize",
+    name: "Image Resizer",
+    description:
+      "Resize images to any dimension. Maintain aspect ratio. Supports PNG, JPEG, WebP.",
+    icon: "RS",
+  },
+  {
+    href: "/pdf-split",
+    name: "Split PDF Pages",
+    description:
+      "Extract specific pages or split PDFs into chunks. Runs entirely in your browser.",
+    icon: "SP",
+  },
+  {
+    href: "/image-converter",
+    name: "Image Format Converter",
+    description:
+      "Convert between PNG, JPEG, WebP, and BMP. Adjust quality settings. Free and instant.",
+    icon: "CV",
+  },
+  {
+    href: "/video-to-gif",
+    name: "Video to GIF Maker",
+    description:
+      "Convert MP4 and WebM videos to animated GIFs. Set start/end time, frame rate, and size.",
+    icon: "GIF",
+  },
+  {
     href: "/code-review",
     name: "Code Review Tool",
     description:
@@ -218,8 +274,8 @@ export default function HomePage() {
             "@type": "WebApplication",
             "name": "DevTools.run",
             "url": "https://devtools-site-delta.vercel.app",
-            "description": "175+ free browser-based developer tools and a Solana Scanner Telegram bot. JSON formatter, Base64 encoder, JWT decoder, resume builder, AI writer, CSS tools, Solana tools, and more.",
-            "applicationCategory": "DeveloperApplication",
+            "description": "500+ free online tools: compress images, merge PDFs, generate QR codes, remove backgrounds, format JSON, and more. All run in your browser.",
+            "applicationCategory": "UtilitiesApplication",
             "operatingSystem": "Any",
             "offers": {
               "@type": "Offer",
@@ -236,16 +292,17 @@ export default function HomePage() {
       />
       <section className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-3 tracking-tight">
-          265+ Free Developer Tools
+          500+ Free Online Tools
         </h1>
         <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
-          JSON formatter, regex tester, CSS generators, calculators, crypto tools, and 260 more.
-          All browser-based, all free, no signup.
+          Compress images, merge PDFs, generate QR codes, remove backgrounds, convert files, and 500+ more.
+          All run in your browser — fast, private, no signup.
         </p>
         <div className="mt-4 flex gap-3 justify-center flex-wrap text-sm">
-          <a href="/extension" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold">Chrome Extension</a>
-          <a href="/free-api" className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Free APIs</a>
-          <a href="/price/sol-to-usd" className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Crypto Prices</a>
+          <a href="/image-compress" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold">Compress Image</a>
+          <a href="/pdf-merge" className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold">Merge PDF</a>
+          <a href="/qr-code-generator" className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg font-bold">QR Code</a>
+          <a href="/background-remover" className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold">Remove BG</a>
         </div>
       </section>
 
@@ -274,36 +331,36 @@ export default function HomePage() {
       </div>
 
       <section className="mt-10">
-        <h2 className="text-2xl font-bold mb-4">New Tools</h2>
+        <h2 className="text-2xl font-bold mb-4">Popular Tools</h2>
         <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {[
-            { href: "/ai-writer", name: "AI Writing Assistant", icon: "AI" },
+            { href: "/image-compress", name: "Image Compressor", icon: "IC" },
+            { href: "/pdf-merge", name: "PDF Merger", icon: "PM" },
+            { href: "/pdf-split", name: "PDF Splitter", icon: "PS" },
+            { href: "/background-remover", name: "Background Remover", icon: "BG" },
+            { href: "/image-resize", name: "Image Resizer", icon: "IR" },
+            { href: "/image-converter", name: "Image Converter", icon: "FC" },
+            { href: "/video-to-gif", name: "Video to GIF", icon: "GF" },
+            { href: "/qr-code-generator", name: "QR Code Generator", icon: "QR" },
+            { href: "/word-to-pdf", name: "Word to PDF", icon: "WP" },
+            { href: "/bmi-calculator", name: "BMI Calculator", icon: "BM" },
+            { href: "/mortgage-calculator", name: "Mortgage Calculator", icon: "MC" },
+            { href: "/percentage-calculator", name: "Percentage Calc", icon: "%" },
             { href: "/resume-builder", name: "Resume Builder", icon: "CV" },
             { href: "/invoice-generator", name: "Invoice Generator", icon: "IN" },
-            { href: "/color-palette-generator", name: "Color Palette Generator", icon: "PA" },
-            { href: "/css-grid-generator", name: "CSS Grid Builder", icon: "GR" },
-            { href: "/flexbox-generator", name: "Flexbox Playground", icon: "FX" },
-            { href: "/css-animation-generator", name: "CSS Animations", icon: "AN" },
-            { href: "/html-to-jsx", name: "HTML to JSX", icon: "JX" },
-            { href: "/svg-to-css", name: "SVG to CSS", icon: "SV" },
-            { href: "/readme-generator", name: "README Generator", icon: "RM" },
-            { href: "/code-formatter", name: "Code Formatter", icon: "FT" },
-            { href: "/sql-formatter", name: "SQL Beautifier", icon: "SQ" },
-            { href: "/markdown-preview", name: "Markdown Editor", icon: "MD" },
-            { href: "/crontab", name: "Crontab Builder", icon: "CR" },
+            { href: "/ai-writer", name: "AI Writing Assistant", icon: "AI" },
             { href: "/text-to-speech", name: "Text to Speech", icon: "TS" },
             { href: "/speech-to-text", name: "Speech to Text", icon: "ST" },
-            { href: "/image-to-base64", name: "Image to Base64", icon: "I6" },
-            { href: "/pixel-art", name: "Pixel Art Editor", icon: "PX" },
-            { href: "/text-compare", name: "Text Diff", icon: "DF" },
-            { href: "/link-shortener", name: "Link Shortener", icon: "LN" },
-            { href: "/json-formatter", name: "JSON Formatter", icon: "{}" },
-            { href: "/lorem-ipsum-generator", name: "Lorem Ipsum", icon: "Li" },
-            { href: "/hash-generator", name: "Hash Generator", icon: "#" },
-            { href: "/jwt-decoder", name: "JWT Decoder", icon: "JW" },
-            { href: "/base64-encoder", name: "Base64 Encoder", icon: "B6" },
-            { href: "/url-encoder", name: "URL Encoder", icon: "%" },
             { href: "/password-generator", name: "Password Gen", icon: "PW" },
+            { href: "/color-palette-generator", name: "Color Palette", icon: "PA" },
+            { href: "/json-formatter", name: "JSON Formatter", icon: "{}" },
+            { href: "/barcode-generator", name: "Barcode Generator", icon: "BC" },
+            { href: "/wifi-qr", name: "WiFi QR Code", icon: "WF" },
+            { href: "/tip-calculator", name: "Tip Calculator", icon: "TC" },
+            { href: "/age-calculator", name: "Age Calculator", icon: "AG" },
+            { href: "/unit-converter", name: "Unit Converter", icon: "UC" },
+            { href: "/calorie-calculator", name: "Calorie Calculator", icon: "CC" },
+            { href: "/loan-calculator", name: "Loan Calculator", icon: "LC" },
           ].map((t) => (
             <Link key={t.href} href={t.href} className="flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-3 hover:border-[var(--accent)] transition-colors">
               <div className="w-9 h-9 rounded bg-[var(--bg-tertiary)] border border-[var(--border)] flex items-center justify-center text-xs font-mono font-bold text-[var(--accent)]">{t.icon}</div>
