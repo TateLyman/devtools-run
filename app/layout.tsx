@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_ID || undefined,
+  },
 };
 
 export default function RootLayout({
@@ -118,13 +121,25 @@ export default function RootLayout({
         </div>
 
         <footer className="border-t border-[var(--border)] mt-auto pb-12">
-          <div className="max-w-5xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-[var(--text-secondary)]">
-            <span>Built by a developer, for developers</span>
-            <span className="hidden sm:inline">·</span>
-            <div className="flex items-center gap-3">
-              <TipButton compact />
-              <code className="text-xs text-[var(--accent)] select-all">NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr</code>
-              <span className="text-[var(--text-secondary)]">(SOL)</span>
+          <div className="max-w-5xl mx-auto px-4 py-6 space-y-4">
+            <div className="flex flex-wrap justify-center gap-4 text-xs text-[var(--text-secondary)]">
+              <Link href="/pdf-tools" className="hover:text-white transition-colors">PDF Tools</Link>
+              <Link href="/image-tools" className="hover:text-white transition-colors">Image Tools</Link>
+              <Link href="/calculators" className="hover:text-white transition-colors">Calculators</Link>
+              <Link href="/developer-tools" className="hover:text-white transition-colors">Developer Tools</Link>
+              <Link href="/pro" className="text-yellow-400 hover:text-yellow-300 transition-colors">Pro</Link>
+              <Link href="/store" className="hover:text-white transition-colors">Store</Link>
+              <Link href="/hire" className="hover:text-white transition-colors">Hire Me</Link>
+              <Link href="/advertise" className="hover:text-white transition-colors">Advertise</Link>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-[var(--text-secondary)]">
+              <span>500+ free tools — runs in your browser</span>
+              <span className="hidden sm:inline">·</span>
+              <div className="flex items-center gap-3">
+                <TipButton compact />
+                <code className="text-xs text-[var(--accent)] select-all">NaTTUfDDQ8U1RBqb9q5rz6vJ22cWrrT5UAsXuxnb2Wr</code>
+                <span className="text-[var(--text-secondary)]">(SOL)</span>
+              </div>
             </div>
           </div>
         </footer>

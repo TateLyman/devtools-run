@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import { PDFDocument } from "pdf-lib";
 
 import AdSlot from "../components/AdSlot";
+import RelatedTools from "../components/RelatedTools";
 
 interface PdfFile {
   id: string;
@@ -465,6 +466,8 @@ export default function PdfMergePage() {
           <li>No signup, no watermarks, completely free</li>
         </ul>
       </section>
+
+      <RelatedTools group="pdf" current="/pdf-merge" />
     </>
   );
 }
